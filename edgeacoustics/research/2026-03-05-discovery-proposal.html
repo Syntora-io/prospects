@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edge Acoustics -- AI Discovery Proposal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .page { border: none; box-shadow: none; margin: 0; page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f0f0f0;
+      color: #111;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 860px;
+      margin: 0 auto 48px auto;
+      padding: 64px 60px;
+      border: 1px solid #ddd;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #111;
+    }
+
+    p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 48px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    strong { color: #111; }
+
+    .stat-row {
+      display: flex;
+      gap: 40px;
+      margin: 28px 0 36px 0;
+    }
+
+    .stat-box { flex: 1; }
+
+    .big-number {
+      font-size: 44px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .big-label {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .callout {
+      border-left: 3px solid #111;
+      padding: 16px 20px;
+      background: #f8f8f8;
+      margin: 24px 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .callout strong { color: #111; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 36px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    table th {
+      text-align: left;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-bottom: 2px solid #111;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+      color: #333;
+    }
+
+    table td strong { color: #111; }
+    table tr:last-child td { border-bottom: none; }
+
+    ul.bl {
+      list-style: none;
+      margin: 12px 0 20px 0;
+    }
+
+    ul.bl li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+      font-size: 15px;
+      color: #333;
+    }
+
+    ul.bl li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    ul.bl li strong { color: #111; }
+
+    .phase {
+      border: 2px solid #111;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .phase .price {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .phase p { margin-bottom: 8px; }
+
+    .phase ul {
+      list-style: none;
+      margin: 8px 0 0 0;
+    }
+
+    .phase ul li {
+      padding: 3px 0 3px 18px;
+      position: relative;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .phase ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 5px;
+      height: 5px;
+      background: #999;
+      border-radius: 50%;
+    }
+
+    .phase.future {
+      border-style: dashed;
+      border-color: #bbb;
+    }
+
+    .phase.future h3 { color: #888; }
+
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .sig-box {
+      border-top: 1px solid #111;
+      padding-top: 12px;
+    }
+
+    .sig-box .label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    .sig-box .name {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .sig-box .title {
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page">
+    <h1>Edge Acoustics</h1>
+    <div class="subtitle">AI Discovery Phase -- Estimating</div>
+
+    <hr class="divider">
+
+    <h2>Prepared for</h2>
+    <table>
+      <tr><td style="width: 200px;"><strong>Branden West</strong></td><td>Owner</td></tr>
+    </table>
+
+    <h2>Prepared by</h2>
+    <p><strong>Syntora</strong></p>
+    <p class="meta">March 5, 2026</p>
+    <p class="meta">Confidential</p>
+  </div>
+
+  <!-- PAGE 2: THE SITUATION -->
+  <div class="page">
+    <h2>The Situation</h2>
+
+    <p>Edge Acoustics estimates every project by hand. An estimator opens the drawings in Plan Swift, clicks through every page to find acoustical scope, measures quantities, then manually types those numbers into Excel to build a quote. The process works, but it is slow, repetitive, and carries real financial risk when items are missed.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">3</div>
+        <div class="big-label">Estimators doing manual takeoffs</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">1-8 hrs</div>
+        <div class="big-label">Per project depending on size</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">100%</div>
+        <div class="big-label">Of missed items become your cost</div>
+      </div>
+    </div>
+
+    <p>Your team tried to adopt AI internally and it didn't stick. That's not unusual. Most companies that skip structured discovery end up in the same place. The opportunity is real, but it needs to be scoped properly before anything gets built.</p>
+
+    <div class="callout">
+      <strong>Before we build anything, we need to understand exactly how your estimators work, where the bottlenecks are, and which parts of the process AI can realistically improve.</strong> That is what this discovery phase delivers.
+    </div>
+  </div>
+
+  <!-- PAGE 3: WHAT DISCOVERY LOOKS LIKE -->
+  <div class="page">
+    <h2>What Discovery Looks Like</h2>
+
+    <p>Two focused calls with your head estimator to capture how the work actually gets done. One presentation call to walk you through everything we found and where AI and automation can make a measurable difference.</p>
+
+    <table>
+      <tr><th>Call</th><th>Attendees</th><th>Purpose</th></tr>
+      <tr><td>1</td><td>Head Estimator, Parker</td><td>Full workflow walkthrough: screen share of Plan Swift takeoff, Excel pricing, quote generation. Capture every step, decision point, and pain point.</td></tr>
+      <tr><td>2</td><td>Head Estimator, Parker</td><td>Deep-dive on areas identified in call 1. Edge cases, large vs. small projects, common mistakes, drawing formats.</td></tr>
+      <tr><td>3</td><td>Branden, Parker</td><td>Deliverable presentation: process map, opportunity map, and recommended next steps.</td></tr>
+    </table>
+
+    <p>Up to <strong>3 calls, 30-45 minutes each</strong>. Scheduled at mutually convenient times.</p>
+
+    <h2>What We Investigate</h2>
+
+    <ul class="bl">
+      <li><strong>Drawing review process</strong> -- how estimators identify acoustical scope across multi-discipline drawing sets</li>
+      <li><strong>Plan Swift workflow</strong> -- takeoff process, measurement methods, output format, integration capabilities</li>
+      <li><strong>Excel pricing workflow</strong> -- how quantities become quotes, markup calculations, labor pricing</li>
+      <li><strong>Error patterns</strong> -- where and why items get missed, how that impacts the business</li>
+      <li><strong>Drawing formats</strong> -- file types received, quality, consistency across customers and general contractors</li>
+      <li><strong>Integration landscape</strong> -- Plan Swift, Google Workspace, QuickBooks, TSheets connections and data flows</li>
+    </ul>
+  </div>
+
+  <!-- PAGE 4: DELIVERABLES -->
+  <div class="page">
+    <h2>Deliverables</h2>
+
+    <p>At the end of discovery, you receive a clear picture of what to build, why it matters, and what it will take. No ambiguity.</p>
+
+    <table>
+      <tr><th>Deliverable</th><th>Detail</th></tr>
+      <tr><td><strong>Process Map</strong></td><td>Step-by-step map of your current estimating process from drawings received to quote sent. Every manual step, decision point, and tool captured.</td></tr>
+      <tr><td><strong>AI / Automation Opportunity Map</strong></td><td>Each area where AI or automation can improve the process, ranked by impact and feasibility. Focused on estimating, with notes on potential opportunities in other departments for future phases.</td></tr>
+      <tr><td><strong>Implementation Proposal</strong></td><td>Scoped proposal for the build phase with clear deliverables and pricing. You decide whether to move forward, bring it in-house, or hold.</td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>Discovery is designed to be valuable on its own.</strong> Even if you choose not to proceed with implementation, you walk away with a documented process map and a clear picture of where AI and automation can help your business.
+    </div>
+  </div>
+
+  <!-- PAGE 5: PRICING -->
+  <div class="page">
+    <h2>Investment</h2>
+
+    <div class="phase">
+      <h3>AI Discovery Phase -- Estimating</h3>
+      <div class="price">$485</div>
+      <p>Fixed fee. Includes all calls, research, analysis, and deliverables.</p>
+      <ul>
+        <li>Up to 3 calls (30-45 minutes each) with your team</li>
+        <li>Process map of the full estimating workflow</li>
+        <li>AI and automation opportunity map based on findings</li>
+        <li>Scoped implementation proposal with pricing for the build phase</li>
+      </ul>
+    </div>
+
+    <div class="phase future">
+      <h3>Implementation Phase (Scoped After Discovery)</h3>
+      <p>Custom quote based on discovery findings. Priced and scoped separately. No obligation to proceed.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">$485</div>
+        <div class="big-label">Fixed discovery fee</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">3</div>
+        <div class="big-label">Calls included</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">1-2 weeks</div>
+        <div class="big-label">Discovery through deliverables</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 6: NEXT STEPS -->
+  <div class="page">
+    <h2>What We Need From You</h2>
+
+    <table>
+      <tr><th>Requirement</th><th>Detail</th></tr>
+      <tr><td><strong>Head estimator availability</strong></td><td>Two 30-45 minute calls for workflow walkthrough and follow-up</td></tr>
+      <tr><td><strong>Screen share access</strong></td><td>Estimator shares their screen during calls to show Plan Swift and Excel workflow</td></tr>
+      <tr><td><strong>Sample drawings</strong></td><td>2-3 example drawing sets (small, medium, large project) for analysis</td></tr>
+      <tr><td><strong>Sample output</strong></td><td>Example Excel pricing sheet and finished PDF quote</td></tr>
+    </table>
+
+    <h2>Next Steps</h2>
+
+    <table>
+      <tr><th>Step</th><th>Action</th><th>Who</th></tr>
+      <tr><td>1</td><td>Approve this proposal</td><td>Branden</td></tr>
+      <tr><td>2</td><td>Schedule first call with head estimator</td><td>Branden + Parker</td></tr>
+      <tr><td>3</td><td>Workflow walkthrough (Call 1)</td><td>Head Estimator + Parker</td></tr>
+      <tr><td>4</td><td>Deep-dive and clarification (Call 2)</td><td>Head Estimator + Parker</td></tr>
+      <tr><td>5</td><td>Deliverable presentation (Call 3)</td><td>Branden + Parker</td></tr>
+    </table>
+
+    <h2>Terms</h2>
+
+    <ul class="bl">
+      <li><strong>Intellectual property.</strong> All documentation, designs, and deliverables produced during this engagement are owned by Edge Acoustics. Syntora retains no rights to any work product.</li>
+      <li><strong>Confidentiality.</strong> All information shared during this engagement is treated as confidential. No data, drawings, pricing, or business information will be shared with third parties.</li>
+      <li><strong>Scope.</strong> This proposal covers the discovery phase only. Implementation is scoped and priced separately based on discovery findings.</li>
+    </ul>
+
+    <div class="sig-grid">
+      <div class="sig-box">
+        <div class="label">Edge Acoustics</div>
+        <div style="height: 60px;"></div>
+        <div class="name">Branden West</div>
+        <div class="title">Owner</div>
+      </div>
+      <div class="sig-box">
+        <div class="label">Syntora</div>
+        <div style="height: 60px;"></div>
+        <div class="name">Parker Gawne</div>
+        <div class="title">Founder</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
