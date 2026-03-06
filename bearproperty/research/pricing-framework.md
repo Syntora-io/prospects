@@ -80,28 +80,41 @@
 
 ## What We're Selling (Value Framing)
 
-### Phase 1: Standalone Tool
+### Product A: Communication Engine
+
+**What it replaces:**
+- Slow/no applicant responses -> same-day automated notifications
+- Manual document chase -> system sends SMS/email with specific missing items
+- Phone tag with applicants -> automated follow-up (Day 0, Day 5, Day 10)
+- 90-day expiration misses -> auto-warning at day 75
+
+**Value to Bear:**
+- Google reviews start improving within weeks
+- Staff stops playing phone tag for missing documents
+- Applicants stop calling Bear asking for status updates
+- Denial notices auto-generated with HUD/FCRA compliance
+
+### Product B: LIHTC Income Engine
 
 **What it replaces:**
 - 40+ hrs/week of manual income calculation -> batch upload, results in seconds
 - Manual AMI annotation -> auto-sorted dashboard
-- Delayed applicant communication -> instant auto-emails
 - 80% wasted effort on denials -> pre-screen before full processing
 
 **Value to Bear:**
 - Admin's role shifts from sorting to exception handling (employer callbacks, complex cases)
 - Leasing agents spend more time with qualified applicants, less time chasing dead leads
 - Faster unit fills = less vacancy loss
-- Better applicant experience = better Google reviews
 - Reduced compliance risk from calculation errors
 
-### Phase 2: RealPage Integration
+### RealPage Integration (End State)
 
-**Additional value:**
+**Additional value over standalone:**
 - Zero manual data transfer
 - Waiting list sorts itself inside RealPage
 - Real-time processing (no batch delay)
 - Scales across all 26+ communities without additional staff
+- Registration starts Day 1, runs in background
 
 ---
 
@@ -130,19 +143,20 @@ Cons: Need to know total unit count across LIHTC portfolio
 ### Option C: Project Build + Monthly Maintenance
 | Component | Price |
 |-----------|-------|
-| Phase 1 build (standalone engine) | $XX,XXX one-time |
+| Communication Engine build | $XX,XXX one-time |
+| Income Engine build | $XX,XXX one-time |
 | Monthly platform fee | $X,XXX/mo |
-| Phase 2 build (RealPage integration) | $XX,XXX one-time |
+| RealPage Integration build | $XX,XXX one-time |
 | Monthly platform fee (integrated) | $X,XXX/mo |
 
 Pros: Clear scope, client understands what they're paying for
 Cons: Larger upfront commitment
 
 ### Option D: Hybrid (Recommended to Explore)
-- Setup/build fee for Phase 1
+- Setup/build fee per product (A, B, or both)
 - Monthly platform fee based on unit count or property count
-- Phase 2 integration as a separate scope once RealPage approves
-- Communication add-on (email notifications, SMS)
+- RealPage Integration as a separate scope once registration clears
+- SMS add-on pricing (Twilio costs pass through)
 
 ---
 
@@ -190,5 +204,5 @@ As your portfolio grows from 26 to 37 communities, this problem only gets worse 
 - Don't quote a number on March 4 -- too early, scope isn't defined
 - Don't anchor too low -- this is a CEO-referred, enterprise-grade problem
 - Don't price per application -- incentivizes them to limit usage
-- Don't forget Phase 2 is a separate revenue event
+- Don't forget RealPage Integration is a separate revenue event
 - Don't ignore the portfolio play -- 26 communities today, 37 soon

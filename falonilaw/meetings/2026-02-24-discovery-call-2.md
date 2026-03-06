@@ -1,7 +1,7 @@
-# Discovery Call 2 -- Filoni Law
+# Discovery Call 2 -- Faloni Law
 
 - **Date:** Feb 24, 2026, 12:00 PM ET
-- **Attendees:** Parker Gawne, Meghna Shindhe, David Filoni Jr., Sean Barlisan, Darsh Patel, Trisha
+- **Attendees:** Parker Gawne, Meghna Shindhe, David Faloni Jr., Sean Barlisan, Darsh Patel, Trisha
 - **Duration:** ~37 min
 
 ---

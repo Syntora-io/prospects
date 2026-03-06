@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faloni Law -- Infrastructure Proposal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .page { border: none; box-shadow: none; margin: 0; page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f0f0f0;
+      color: #111;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 860px;
+      margin: 0 auto 48px auto;
+      padding: 64px 60px;
+      border: 1px solid #ddd;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #111;
+    }
+
+    p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 48px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    strong { color: #111; }
+
+    .stat-row {
+      display: flex;
+      gap: 40px;
+      margin: 28px 0 36px 0;
+    }
+
+    .stat-box { flex: 1; }
+
+    .big-number {
+      font-size: 44px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .big-label {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .callout {
+      border-left: 3px solid #111;
+      padding: 16px 20px;
+      background: #f8f8f8;
+      margin: 24px 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .callout strong { color: #111; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 36px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    table th {
+      text-align: left;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-bottom: 2px solid #111;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+      color: #333;
+    }
+
+    table td strong { color: #111; }
+    table tr:last-child td { border-bottom: none; }
+
+    ul.bl {
+      list-style: none;
+      margin: 12px 0 20px 0;
+    }
+
+    ul.bl li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+      font-size: 15px;
+      color: #333;
+    }
+
+    ul.bl li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    ul.bl li strong { color: #111; }
+
+    .code-block {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 16px 0;
+      white-space: pre;
+      overflow-x: auto;
+      color: #222;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #f4f4f4;
+      padding: 2px 6px;
+      font-size: 13px;
+    }
+
+    .phase {
+      border: 2px solid #111;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .phase .price {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .phase p { margin-bottom: 8px; }
+
+    .phase ul {
+      list-style: none;
+      margin: 8px 0 0 0;
+    }
+
+    .phase ul li {
+      padding: 3px 0 3px 18px;
+      position: relative;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .phase ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 5px;
+      height: 5px;
+      background: #999;
+      border-radius: 50%;
+    }
+
+    .phase.future {
+      border-style: dashed;
+      border-color: #bbb;
+    }
+
+    .phase.future h3 { color: #888; }
+
+    .timeline {
+      display: flex;
+      gap: 0;
+      margin: 24px 0;
+    }
+
+    .timeline-block {
+      flex: 1;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+
+    .timeline-block:first-child {
+      border-right: none;
+      background: #f8f8f8;
+    }
+
+    .timeline-block h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: #111;
+    }
+
+    .timeline-block ul {
+      list-style: none;
+    }
+
+    .timeline-block ul li {
+      padding: 4px 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .sig-box {
+      border-top: 1px solid #111;
+      padding-top: 12px;
+    }
+
+    .sig-box .label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    .sig-box .name {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .sig-box .title {
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page">
+    <h1>Faloni Law</h1>
+    <div class="subtitle">GitHub Infrastructure Setup</div>
+
+    <hr class="divider">
+
+    <h2>Prepared for</h2>
+    <table>
+      <tr><td style="width: 200px;"><strong>David Faloni Jr.</strong></td><td>Managing Partner</td></tr>
+      <tr><td><strong>Trisha</strong></td><td>Programming Director</td></tr>
+      <tr><td><strong>Sean Barlisan</strong></td><td>Technical Lead</td></tr>
+      <tr><td><strong>Chris</strong></td><td>Lead Programmer</td></tr>
+      <tr><td><strong>Darsh Patel</strong></td><td>Programmer</td></tr>
+    </table>
+
+    <h2>Prepared by</h2>
+    <p><strong>Syntora</strong></p>
+    <p class="meta">March 3, 2026</p>
+    <p class="meta">Confidential</p>
+  </div>
+
+  <!-- PAGE 2: THE SITUATION -->
+  <div class="page">
+    <h2>The Situation</h2>
+
+    <p>Faloni Law processes over 1,000 court emails per day through the NJ E-Courts system. Your programming team builds and maintains the Python scripts and PowerShell endpoints that power this pipeline. The team is capable. The problem is how the work is organized.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">5</div>
+        <div class="big-label">Developers on separate AWS Workspaces</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">0</div>
+        <div class="big-label">Shared code repositories</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">0</div>
+        <div class="big-label">Code review before production</div>
+      </div>
+    </div>
+
+    <p>Each developer works in isolation on their own AWS Workspace. There is no shared repository, no code review process, no deployment automation, and no audit trail on code changes. When a new developer starts, onboarding is manual. When a developer leaves, their code goes with them.</p>
+
+    <div class="callout">
+      <strong>You asked for a programmer. After two calls with your team, we believe the higher-value move is building the infrastructure that makes every programmer you already have more productive.</strong>
+    </div>
+  </div>
+
+  <!-- PAGE 3: SCOPE OF WORK -->
+  <div class="page">
+    <h2>Scope of Work</h2>
+
+    <p>One engagement. Two phases. One deliverable: a fully configured GitHub infrastructure that your team uses from day one.</p>
+
+    <div class="timeline">
+      <div class="timeline-block">
+        <h4>Phase 1: Discovery -- Week 1</h4>
+        <ul>
+          <li>Kickoff call with David and Trisha</li>
+          <li>Technical call with Sean</li>
+          <li>Technical call with Darsh</li>
+          <li>Technical call with Chris</li>
+          <li>Audit all scripts, schedules, and deployment processes across each AWS Workspace</li>
+          <li>Map data flows and identify which code touches sensitive data</li>
+          <li>Identify opportunities for automation and AI (documented for future engagement)</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <h4>Phase 2: Implementation -- Weeks 2-3</h4>
+        <ul>
+          <li>GitHub organization and repository setup</li>
+          <li>Folder structure mirroring team ownership</li>
+          <li>Branch protection and CODEOWNERS configuration</li>
+          <li>Permissions model for every team member</li>
+          <li>Import existing scripts from all Workspaces</li>
+          <li>GitHub Actions pipeline (linting, deployment)</li>
+          <li>1-2 working sessions with Sean</li>
+          <li>Handoff walkthrough with the full team</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Calls Included</h2>
+
+    <table>
+      <tr><th>Call</th><th>Attendees</th><th>Purpose</th></tr>
+      <tr><td>1</td><td>David, Trisha</td><td>Kickoff: scope, access, expectations</td></tr>
+      <tr><td>2</td><td>Sean</td><td>Technical: system overview, scripts, data flows</td></tr>
+      <tr><td>3</td><td>Darsh</td><td>Technical: scrapers, workspace setup</td></tr>
+      <tr><td>4</td><td>Chris</td><td>Technical: filer scripts, deployment process</td></tr>
+      <tr><td>5-6</td><td>Sean</td><td>Working sessions during implementation</td></tr>
+      <tr><td>7</td><td>Full team</td><td>Handoff and walkthrough</td></tr>
+    </table>
+
+    <p>Up to <strong>7 calls, 30-45 minutes each</strong>. All calls are scheduled at mutually convenient times.</p>
+  </div>
+
+  <!-- PAGE 4: WHAT WE'RE BUILDING -->
+  <div class="page">
+    <h2>What We're Building</h2>
+
+    <table>
+      <tr><th>Component</th><th>Detail</th></tr>
+      <tr><td><strong>GitHub Organization</strong></td><td>Faloni Law org on GitHub Team plan. You own the org. Full administrative control.</td></tr>
+      <tr><td><strong>Repository</strong></td><td>Shared monorepo for all automation code. Structured by team ownership.</td></tr>
+      <tr><td><strong>Branch Protection</strong></td><td>No direct push to production. Every change requires a pull request and at least one approval.</td></tr>
+      <tr><td><strong>Permissions</strong></td><td>Role-based access for every team member. Trisha as required reviewer on sensitive code paths.</td></tr>
+      <tr><td><strong>CODEOWNERS</strong></td><td>Automatic reviewer assignment based on which files a pull request touches.</td></tr>
+      <tr><td><strong>GitHub Actions</strong></td><td>Automated linting on every pull request. Automated deployment to AWS Workspaces on merge.</td></tr>
+      <tr><td><strong>Script Migration</strong></td><td>All existing scripts imported from individual Workspaces into the shared repository.</td></tr>
+      <tr><td><strong>Documentation</strong></td><td>Onboarding guide, repo structure reference, and workflow documentation for the team.</td></tr>
+    </table>
+
+    <h2>Repository Structure</h2>
+
+    <div class="code-block">faloni-law/automation/
+  scrapers/
+    jeffers2/          Darsh -- wage, court officer, goods &amp; chattel
+    jeffers3/          Sean -- E-Court scrapers
+  filers/              Chris -- court filing automation
+  etl/                 MaxExtract / MaxUpdater wrappers
+  powershell/          PowerShell Universal endpoints
+  shared/              Database connections, config, utilities</div>
+
+    <h2>Permissions Model</h2>
+
+    <table>
+      <tr><th>Person</th><th>Role</th><th>Access</th></tr>
+      <tr><td><strong>David</strong></td><td>Organization Owner</td><td>Billing and organization settings</td></tr>
+      <tr><td><strong>Sean</strong></td><td>Administrator</td><td>Repo settings, branch protection, merge authority, onboarding</td></tr>
+      <tr><td><strong>Trisha</strong></td><td>Required Reviewer</td><td>Required approver on sensitive code. Full audit visibility.</td></tr>
+      <tr><td><strong>Chris, Brian</strong></td><td>Write</td><td>Push to branches, open pull requests. Cannot merge without review.</td></tr>
+      <tr><td><strong>Darsh</strong></td><td>Write</td><td>Push to branches, open pull requests. Cannot merge without review.</td></tr>
+      <tr><td><strong>Syntora</strong></td><td>Admin (temporary)</td><td>Setup and configuration. Removed after handoff.</td></tr>
+    </table>
+  </div>
+
+  <!-- PAGE 5: PRICING -->
+  <div class="page">
+    <h2>Investment</h2>
+
+    <div class="phase">
+      <h3>GitHub Infrastructure Setup</h3>
+      <div class="price">$3,650</div>
+      <p>Fixed fee. Includes discovery, implementation, and handoff.</p>
+      <ul>
+        <li>1 week discovery: audit scripts, workspaces, data flows, and deployment processes</li>
+        <li>1-2 weeks implementation: GitHub org, repo, pipelines, permissions, script migration</li>
+        <li>Up to 7 calls (30-45 minutes each) with your team</li>
+        <li>Automation and AI opportunity report delivered alongside infrastructure</li>
+        <li>Full handoff walkthrough with the team</li>
+      </ul>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">$3,650</div>
+        <div class="big-label">Fixed engagement fee</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">$28</div>
+        <div class="big-label">GitHub platform cost per month (7 users)</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">3 weeks</div>
+        <div class="big-label">Discovery through handoff</div>
+      </div>
+    </div>
+
+    <h2>What's Included</h2>
+
+    <ul class="bl">
+      <li><strong>GitHub organization and repository</strong> fully configured with branch protection, permissions, and reviewer assignment</li>
+      <li><strong>All existing scripts imported</strong> from every developer's AWS Workspace into the shared repository</li>
+      <li><strong>GitHub Actions pipeline</strong> for automated linting and deployment</li>
+      <li><strong>Onboarding documentation</strong> so any future developer can ramp independently</li>
+      <li><strong>Automation and AI opportunity report</strong> identifying areas for future development</li>
+    </ul>
+
+    <h2>What's Not Included</h2>
+
+    <ul class="bl">
+      <li>Writing or modifying existing scripts</li>
+      <li>AI or automation development</li>
+      <li>Ongoing maintenance or support</li>
+      <li>New script development from backlog items</li>
+    </ul>
+
+    <p>Future automation, AI, and script development work can be scoped as a separate engagement based on the opportunities identified during discovery.</p>
+  </div>
+
+  <!-- PAGE 6: REQUIREMENTS & NEXT STEPS -->
+  <div class="page">
+    <h2>What We Need From You</h2>
+
+    <table>
+      <tr><th>Requirement</th><th>Detail</th></tr>
+      <tr><td><strong>AWS account access</strong></td><td>Administrative access or credentials to each developer's AWS Workspace</td></tr>
+      <tr><td><strong>Script access</strong></td><td>Read access to all existing scripts across Workspaces</td></tr>
+      <tr><td><strong>Primary contact</strong></td><td>Sean or Trisha for technical questions and scheduling</td></tr>
+      <tr><td><strong>Developer availability</strong></td><td>Each developer available for one 30-45 minute call during discovery</td></tr>
+      <tr><td><strong>GitHub accounts</strong></td><td>Each team member creates a free GitHub account (we handle org setup and invitations)</td></tr>
+    </table>
+
+    <h2>Next Steps</h2>
+
+    <table>
+      <tr><th>Step</th><th>Action</th><th>Who</th></tr>
+      <tr><td>1</td><td>Approve this proposal</td><td>David</td></tr>
+      <tr><td>2</td><td>Provide AWS access and schedule kickoff call</td><td>Sean or Trisha</td></tr>
+      <tr><td>3</td><td>Discovery begins (Week 1)</td><td>Syntora + team</td></tr>
+      <tr><td>4</td><td>Implementation (Weeks 2-3)</td><td>Syntora + Sean</td></tr>
+      <tr><td>5</td><td>Handoff walkthrough with full team</td><td>Everyone</td></tr>
+    </table>
+
+    <h2>Terms</h2>
+
+    <ul class="bl">
+      <li><strong>Intellectual property.</strong> All code, documentation, configurations, and deliverables produced during this engagement are owned by Faloni Law. Syntora retains no rights to any work product.</li>
+      <li><strong>Confidentiality.</strong> All information shared during this engagement is treated as confidential. No data, code, or business information will be shared with third parties.</li>
+      <li><strong>Scope.</strong> This proposal covers GitHub infrastructure setup as described. Automation, AI, and script development are not included and will be scoped separately if desired.</li>
+    </ul>
+
+    <div class="sig-grid">
+      <div class="sig-box">
+        <div class="label">Faloni Law</div>
+        <div style="height: 60px;"></div>
+        <div class="name">David Faloni Jr.</div>
+        <div class="title">Managing Partner</div>
+      </div>
+      <div class="sig-box">
+        <div class="label">Syntora</div>
+        <div style="height: 60px;"></div>
+        <div class="name">Parker Gawne</div>
+        <div class="title">Founder</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

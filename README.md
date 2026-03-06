@@ -17,4 +17,5 @@ Syntora prospect pipeline. Research, discovery calls, and strategy docs for acti
 | Prospect | Industry | Stage |
 |----------|----------|-------|
 | [Bear Property](bearproperty/) | Property Management (LIHTC) | Presenting Solution |
-| [Filoni Law](falonilaw/) | Debt Collection Law | Proposal |
+| [Faloni Law](falonilaw/) | Debt Collection Law | Proposal |
+| [GetPrimera](getprimera/) | Insurance (independent agency) | Discovery |

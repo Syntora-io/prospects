@@ -1,8 +1,8 @@
-# Feb 24 Call Prep -- Filoni Law (Call 2)
+# Feb 24 Call Prep -- Faloni Law (Call 2)
 
 ## Context
 - **When:** Tue Feb 24, 1:00 PM ET
-- **Who:** David Filoni Jr., Darsh, Sean (new -- infrastructure/scripts lead)
+- **Who:** David Faloni Jr., Darsh, Sean (new -- infrastructure/scripts lead)
 - **Goal:** Get Sean's technical deep dive, define discovery scope, build trust
 
 ## JST / CollectMax Background

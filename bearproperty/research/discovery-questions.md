@@ -18,25 +18,26 @@ Parker Gawne, Meghna Shindhe, Sara Luster, Jenny Armor
 - Quick recap of discovery call findings for Jenny's context
 - "We spent the last week researching RealPage's platform and your integration options"
 
-### 2. Present Two Approaches (15 min)
+### 2. Present What We Build (15 min)
 
-**Option A: Standalone Tool (Fast, no RealPage dependency)**
-- Separate web app your team uses alongside RealPage
+**Product A: Communication Engine (standalone, no RealPage dependency)**
+- Automated applicant notifications (receipt, missing docs, status updates, denial notices)
+- Document completeness check before human review
+- SMS + email follow-up for missing items (Day 0, Day 5, Day 10)
+- 90-day waitlist expiration auto-warning
+- Fixes response time and Google reviews immediately
+
+**Product B: LIHTC Income Engine (standalone, no RealPage dependency)**
 - Paste or upload application data, our engine calculates income and assigns AMI bucket
 - Dashboard showing all applications pre-sorted by AMI
-- Automated applicant notifications (receipt confirmation + preliminary qualification)
+- Flagging for tips/commissions/employer callback
 - No RealPage approval needed, no integration fees
 - Your admin still updates RealPage manually, but the 40+ hours of hand calculations goes away
 
-**Option B: Full RealPage Integration (Registered Vendor)**
-- We register as a vendor through RealPage's developer portal, sponsored by Bear
+**RealPage Integration (end state, registration starts Day 1)**
 - Direct API connection: reads applications, calculates income, writes AMI bucket back, sorts waiting list inside RealPage
-- Fully automated end-to-end
-- Requires RealPage approval process + possible integration fees
-
-**Our recommendation: Hybrid approach**
-- Phase 1: Standalone tool now -- immediate relief
-- Phase 2: RealPage integration in parallel -- full automation once approved
+- Connects both products to RealPage -- same engines, automated pipes
+- Registration runs in background while Bear uses standalone products
 
 ### 3. Questions for Bear (15 min)
 
@@ -53,7 +54,7 @@ Parker Gawne, Meghna Shindhe, Sara Luster, Jenny Armor
 - Are the AMI buckets the same across all 26 communities or do they vary by property/county?
 
 **Scope**
-- For Phase 1, should we start with the Core List (576 units) as the pilot, or a different property?
+- Should we start with the Core List (576 units) as the pilot, or a different property?
 - Would you want the automated notifications to come from Bear's email domain, or is a separate system fine?
 - Besides Sara's team, would Dawn Parmelee's compliance team need to be involved in validating the calculation logic?
 
@@ -95,7 +96,7 @@ Parker Gawne, Meghna Shindhe, Sara Luster, Jenny Armor
 - XML reports to state HFA, or different format?
 
 ### 5. Next Steps & Timeline (5 min)
-- Agree on approach (standalone, integration, or hybrid)
+- Which products to start with (A, B, or both)
+- Start RealPage registration Day 1 (need PMC ID, Site IDs)
 - Define pilot scope (which property, which team)
 - Identify next call / deliverable
-- If integration path: discuss RealPage vendor registration timeline

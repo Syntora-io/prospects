@@ -143,50 +143,26 @@ Pay Score and Snappt verify income. They don't:
 ## API Access Reality
 **RealPage gates all API access.** No external calls without a RealPage-issued API key. Every vendor must register through their developer portal. There is no way to just hit their endpoints from the outside.
 
-## Two Approaches to Present
+## How This Fits Our Products
 
-### Option 1: Standalone Tool (No RealPage dependency)
-**How it works:** Separate web app that Bear's team uses alongside RealPage. Admin exports or copies application data into our tool, it runs calculations, outputs AMI bucket assignments. Team manually updates RealPage.
+### Product A: Communication Engine (No RealPage dependency)
+Does not need RealPage API access. Runs standalone with CSV-exported contact info.
+- Automated applicant notifications (SMS + email)
+- Document completeness checks
+- Missing doc follow-up (Day 0, 5, 10)
+- 90-day expiration warnings
+- Denial notices (HUD/FCRA compliant)
 
-**Pros:**
-- No RealPage approval process needed
-- No integration fees from RealPage
-- Can build and deploy immediately
-- Zero dependency on RealPage cooperation
-- If RealPage changes their API, we don't break
+### Product B: LIHTC Income Engine (No RealPage dependency)
+Does not need RealPage API access. Runs standalone with CSV upload or manual entry.
+- Income calculation with all LIHTC source types
+- AMI bucket assignment by county + household size
+- Asset imputation, flagging, confidence scoring
+- Dashboard with sorted waiting list
+- Exportable sorted CSV to update RealPage manually
 
-**Cons:**
-- Still some manual steps (copy data in, update RealPage manually)
-- Not fully automated end-to-end
-- Doesn't auto-sort the waiting list inside RealPage
-
-**Could include:**
-- Web-based income calculator with LIHTC rules baked in
-- AMI bucket assignment engine (by county, household size, income limits)
-- Flag tips/commissions/bonuses that need employer follow-up
-- Asset imputation calculator
-- Dashboard showing all applications sorted by AMI bucket
-- Automated applicant notifications (email/SMS on application receipt + preliminary status)
-- Exportable sorted waiting list
-
-**Best for:** Fast deployment, proving value, getting Bear a win now while exploring deeper integration later.
-
-### Option 2: RealPage Integration (Registered Vendor)
-**How it works:** Register as a Registered Vendor through RealPage Developer Portal, sponsored by Bear. Get API key, build direct integration that reads application data, calculates income, writes AMI bucket back, sorts waiting list automatically.
-
-**Pros:**
-- Fully automated end-to-end
-- No manual data transfer
-- Waiting list sorted inside RealPage automatically
-- Scales across all 26+ LIHTC communities
-- Professional, production-grade solution
-
-**Cons:**
-- Requires RealPage approval (certification, infosec review)
-- Bear must sponsor the vendor application
-- RealPage may charge integration fees
-- Timeline depends on RealPage's review process (unknown)
-- Sara said RealPage is "a pain in the butt" with integrations
+### RealPage Integration (End State)
+Connects both products directly to RealPage via API. Registration starts Day 1, runs in background while Bear uses standalone products.
 
 **API endpoints we'd use:**
 - Read: GetWizardPageData, GetEmployment, GetApplyNowSummaryDetails
@@ -195,14 +171,7 @@ Pay Score and Snappt verify income. They don't:
 
 **Path:** Register at developer.realpage.com -> Bear sponsors -> API key issued -> build integration -> certification review -> deploy
 
-**Best for:** Long-term solution, full automation, scalable across portfolio.
-
-### Option 3: Hybrid (Recommended to Present)
-**Phase 1:** Build standalone tool immediately. Bear gets value in weeks, not months. Solves the income calculation and AMI sorting problem right away. Admin still updates RealPage manually, but the 40+ hrs/week of hand calculations drops dramatically.
-
-**Phase 2:** In parallel, start the RealPage Registered Vendor process. Once approved, plug the same calculation engine directly into RealPage via API. Eliminate the manual transfer step. Full automation.
-
-This de-risks the project -- Bear gets immediate relief while the integration process plays out.
+**Why it's the end state:** Bear runs 26 LIHTC communities in RealPage with 7 more coming. CSV doesn't scale to 37 properties. Both products work standalone today -- integration removes the manual handoff when registration clears.
 
 ## Open Questions for March 4 Call
 - Does Bear's RealPage contract allow third-party API access?

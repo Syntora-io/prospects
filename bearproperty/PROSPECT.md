@@ -65,8 +65,9 @@
 "The waiting list sorting."
 
 ## Our Proposed Solution
-- **Phase 1:** Standalone Python engine (no RealPage dependency) -- immediate value in weeks
-- **Phase 2:** RealPage API integration (Registered Vendor) -- full automation, run in parallel
+- **Product A: Communication Engine** -- response time, doc collection, applicant notifications (standalone, value in weeks)
+- **Product B: LIHTC Income Engine** -- AMI sorting, income calculation, waiting list dashboard (standalone, value in weeks)
+- **RealPage Integration** -- connects both engines to RealPage API. Registration starts Day 1, Bear uses standalone while it processes. The end state for 26+ communities.
 - Details: research/technical-approach.md
 
 ## Action Items (Pre-March 4)
@@ -74,7 +75,7 @@
 - [x] Look at Pay Score and Snappt as competitive reference
 - [x] Map Bear's full application process end-to-end
 - [x] Draft RealPage Registered Vendor application
-- [x] Build March 4 call agenda with phased approach
+- [x] Build March 4 call agenda with product-based approach
 - [ ] March 4, 9:30am CT -- present to Sara + Jenny Armor
 
 ## Notes
@@ -93,10 +94,10 @@ bearproperty/
     2025-02-23-discovery-call.md               <- Full call notes
   research/
     march-4-call-prep.md                       <- March 4 talk track + agenda
-    phase-mind-map.md                          <- Full mind map: Phase 1 + Phase 2 + comms
+    phase-mind-map.md                          <- Full mind map: Products A + B + integration
     discovery-questions.md                     <- Call 2 questions (deep dive)
     application-process-map.md                 <- End-to-end process flow
-    technical-approach.md                      <- Phase 1 + Phase 2 architecture + data model
+    technical-approach.md                      <- Product A + B + integration architecture + data model
     realpage-api-research.md                   <- API endpoints, auth, partner program
     realpage-vendor-application-draft.md       <- Draft vendor registration (every field)
     lihtc-application-process.md               <- LIHTC compliance background research

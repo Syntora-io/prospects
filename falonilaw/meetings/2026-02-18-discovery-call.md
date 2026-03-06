@@ -1,7 +1,7 @@
-# Discovery Call -- Filoni Law (Call 1)
+# Discovery Call -- Faloni Law (Call 1)
 
 - **Date:** Feb 18, 2026, 2:00 PM ET
-- **Attendees:** Parker Gawne, Meghna Shindhe, David Filoni Jr., Darsh
+- **Attendees:** Parker Gawne, Meghna Shindhe, David Faloni Jr., Darsh
 - **Duration:** ~33 min
 - **Note:** David joined late (~15 min in). First portion was internal Syntora discussion (Sarah Luster lead, cold email review).
 
@@ -13,7 +13,7 @@
 
 **Automation Interest:** A meeting scheduled for LIHTC process hints at growing demand for automation in property management.
 
-**Tech Bottleneck:** Filoni Law faces coding delays due to overburdened lead programmers; external Python developers sought for assistance.
+**Tech Bottleneck:** Faloni Law faces coding delays due to overburdened lead programmers; external Python developers sought for assistance.
 
 **AI Exploration:** Client shows interest in private AI systems but cites compliance concerns as barriers to entry.
 
@@ -70,7 +70,7 @@
 
 ## Raw Transcript
 
-Cool. Very cool. All right, well, we got a good one. Today we're gonna be speaking with David Filoni Jr. Who is the owner and managing partner of Filoni Law. Yeah, I'm excited.
+Cool. Very cool. All right, well, we got a good one. Today we're gonna be speaking with David Faloni Jr. Who is the owner and managing partner of Faloni Law. Yeah, I'm excited.
 
 Yeah. Yeah, I'm excited. Yeah. He's not really posted that much on LinkedIn. Like you know anything about him, but.
 
@@ -174,7 +174,7 @@ Hi Parker.
 
 Yeah, nice to meet you.
 
-I'm Dave Filoni.
+I'm Dave Faloni.
 
 Yeah, nice to meet you. I've read.
 
@@ -238,7 +238,7 @@ It's just only right writing the code. So, like, so basically step in. So most o
 
 So.
 
-So as Mr. Filoni said, it's by that JSD application. So when we go into jsd, a lot of, like, the paralegals, they need, like, spreadsheets on certain types of information, right? Like keywords that we use, right? So let's just say that we pull like one Excel sheet just for this. Like, let's say, what's the law word Complaints. Complaints, that collection of complaints or letters. Letters. Warrants, I don't know, something like that. Right. Some keywords and then we pull that from JST, right? And we run that automated. Like one is like automated for like every Monday at 2pm so it runs. And then when we get that spreadsheet, we like send it to like one team here or like one team in Mexico, one team india. So depending on what they need or like what keywords, we're like, we're looking.
+So as Mr. Faloni said, it's by that JSD application. So when we go into jsd, a lot of, like, the paralegals, they need, like, spreadsheets on certain types of information, right? Like keywords that we use, right? So let's just say that we pull like one Excel sheet just for this. Like, let's say, what's the law word Complaints. Complaints, that collection of complaints or letters. Letters. Warrants, I don't know, something like that. Right. Some keywords and then we pull that from JST, right? And we run that automated. Like one is like automated for like every Monday at 2pm so it runs. And then when we get that spreadsheet, we like send it to like one team here or like one team in Mexico, one team india. So depending on what they need or like what keywords, we're like, we're looking.
 
 What they're looking for is what we're pulling and then we're sending it to them. So most of our scripts are like that and then some of them are like PowerShell query based, where JST has like its own like independent filing system. So like the account numbers and file numbers, when we pull them, they have to match with our Excel sheet. Right. So one of the other programmers, he's also teaching me how to do. Because I've never handled that part yet. I'm basically new still. We use PowerShell to do that stuff where our file numbers and our account numbers in our system match the JST database. Those are some of the code that we're doing right now.
 

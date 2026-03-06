@@ -1,9 +1,9 @@
 # Bear Property - Technical Approach
 
-## Phase 1: Standalone Engine (No RealPage dependency)
+## Product B: LIHTC Income Engine (Standalone)
 
 ### What It Is
-Python-powered web application that Bear's team uses alongside RealPage. Handles all income calculations, AMI bucket assignment, waiting list sorting, and applicant notifications. Bear's admin feeds it data, gets sorted results back, updates RealPage manually.
+Python-powered web application that Bear's team uses alongside RealPage. Handles all income calculations, AMI bucket assignment, waiting list sorting, and flagging. Bear's admin feeds it data, gets sorted results back, updates RealPage manually. Pairs with Product A (Communication Engine) for applicant notifications.
 
 ### Architecture
 
@@ -179,33 +179,33 @@ Output:
 - Admin's 40+ hrs/week hand-calculating income -> batch upload, get results in seconds
 - Manual AMI annotation next to names in RealPage -> sorted dashboard view
 - 4-5 denials per acceptance -> pre-screen before full processing, save time on non-qualifiers
-- Slow applicant response time -> auto-notifications on receipt
 - No waiting list sorting in RealPage -> sorted export by AMI bucket
+- When paired with Product A: auto-notifications, document chase, 90-day warnings
 
 
 ---
 
 
-## Phase 2: RealPage Integration (If/When Approved)
+## RealPage Integration (End State)
 
 ### What Changes
-Same Python engine from Phase 1. The only difference is how data gets in and out.
+Same engines (Product A + B). The only difference is how data gets in and out.
 
 ```
-Phase 1:  CSV upload -> Engine -> CSV export (manual)
-Phase 2:  RealPage API -> Engine -> RealPage API (automated)
+Standalone:   CSV upload -> Engines -> CSV export (manual)
+Integrated:   RealPage API -> Engines -> RealPage API (automated)
 ```
 
 ### Integration Points
 
-| Phase 1 (Manual) | Phase 2 (API) |
+| Standalone (Now) | Integrated (Go-Live) |
 |-------------------|---------------|
 | Admin uploads CSV | GetWizardPageData pulls application data |
 | Admin enters applicant info | GetEmployment pulls income data |
 | Engine calculates, dashboard shows results | Engine calculates (same logic) |
 | Admin exports sorted CSV | UpdateProspect writes AMI tag back |
 | Admin updates RealPage by hand | FinalSaveWaitlistTaxCredits sorts into correct bucket |
-| Admin sends emails manually | SaveWizardPageData updates application record |
+| Communication engine runs same | Communication engine runs same (no change) |
 
 ### API Endpoints We'd Use
 **Read:**
@@ -260,7 +260,7 @@ Phase 2:  RealPage API -> Engine -> RealPage API (automated)
 - Certification: 2-4 weeks
 - **Total: 3-5 months before production API access**
 
-This is exactly why Phase 1 matters. Bear can't wait 3-5 months. The standalone tool delivers value in weeks while the integration process runs in parallel.
+This is exactly why both products work standalone. Bear can't wait 3-5 months. The Communication Engine and Income Engine deliver value in weeks while the registration runs in the background.
 
 ### Future: AppPartner (Optional, Long-Term)
 If this works for Bear and we want to sell to other RealPage customers:
@@ -274,15 +274,16 @@ If this works for Bear and we want to sell to other RealPage customers:
 ---
 
 
-## Summary: What to Present March 4
+## Summary: What to Present
 
-| | Phase 1: Standalone | Phase 2: RealPage Integration |
-|---|---|---|
-| **Dependency** | None | RealPage vendor approval |
-| **Timeline to value** | Weeks | Months |
-| **Manual steps** | Admin uploads data, exports sorted list | Fully automated |
-| **Solves AMI sorting** | Yes (in our dashboard) | Yes (inside RealPage) |
-| **Solves income calc** | Yes | Yes (same engine) |
-| **Solves notifications** | Yes | Yes |
-| **Risk** | Low | Medium (RealPage approval, fees, timeline) |
-| **Recommendation** | Start here | Run in parallel |
+| | Product A: Communication Engine | Product B: Income Engine | RealPage Integration |
+|---|---|---|---|
+| **Dependency** | None | None | RealPage vendor approval |
+| **Timeline to value** | Weeks | Weeks | 3-5 months (background) |
+| **Manual steps** | CSV export for contact info | CSV upload/export | Fully automated |
+| **Solves response time** | Yes | No | Yes (same) |
+| **Solves doc chase** | Yes | No | Yes (same) |
+| **Solves AMI sorting** | No | Yes | Yes (same engine) |
+| **Solves income calc** | No | Yes | Yes (same engine) |
+| **Risk** | Low | Low | Medium (RealPage approval) |
+| **End state** | Standalone or integrated | Standalone or integrated | Connects both to RealPage |

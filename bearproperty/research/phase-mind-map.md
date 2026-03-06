@@ -1,8 +1,8 @@
-# Bear Property - Full Mind Map: Phase 1 + Phase 2
+# Bear Property - Full Mind Map: Products + Integration
 
 ---
 
-## PHASE 1: Standalone Engine
+## PRODUCT B: LIHTC Income Engine (Standalone)
 
 ### Data In
 
@@ -124,7 +124,7 @@ PER APPLICATION VIEW:
   - Status timeline
 ```
 
-### Communication Layer (CRITICAL)
+### PRODUCT A: Communication Engine
 
 ```
 WHAT WE NEED TO KNOW (ASK MARCH 4):
@@ -239,18 +239,18 @@ RECOMMENDED: Option A (transactional email from Bear's domain)
 
 ---
 
-## PHASE 2: RealPage Integration
+## REALPAGE INTEGRATION (End State)
 
-### What Changes from Phase 1
+### What Changes from Standalone
 
 ```
-PHASE 1                          PHASE 2
----------                        ---------
+STANDALONE                       INTEGRATED
+----------                       ----------
 Manual CSV upload           -->  API auto-pulls new applications
 Manual form entry           -->  GetWizardPageData / GetEmployment
 Same calculation engine     -->  Same calculation engine (no change)
 Same dashboard              -->  Same dashboard (no change)
-Same communication layer    -->  Same communication layer (no change)
+Same communication engine   -->  Same communication engine (no change)
 CSV export for RealPage     -->  UpdateProspect writes AMI tag back
 Manual waitlist update      -->  FinalSaveWaitlistTaxCredits auto-sorts
 Staff checks dashboard      -->  Staff checks dashboard (no change)
@@ -268,7 +268,7 @@ REALPAGE (Bear's system)
   |     |-- GetApplyNowSummaryDetails (full summary)
   |
   v
-SYNTORA ENGINE (same as Phase 1)
+SYNTORA ENGINE (same as standalone)
   |
   |-- Income calculation (same logic)
   |-- AMI bucket assignment (same logic)
@@ -283,19 +283,19 @@ WRITE BACK TO REALPAGE
   |-- FinalSaveWaitlistTaxCredits (place into correct waitlist bucket)
   |
   v
-COMMUNICATION (same as Phase 1)
+COMMUNICATION (same as standalone)
   |
   |-- Auto-email applicant (same triggers, same templates)
   |-- Staff notifications (same)
   |
   v
-DASHBOARD (same as Phase 1, plus)
+DASHBOARD (same as standalone, plus)
   |
   |-- Real-time sync indicator (last poll time, sync status)
   |-- RealPage write-back confirmation (success/fail per application)
 ```
 
-### What We Need for Phase 2
+### What We Need for RealPage Integration
 
 ```
 FROM BEAR:

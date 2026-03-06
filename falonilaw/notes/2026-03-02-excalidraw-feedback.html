@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excalidraw Deck Feedback -- Faloni Law</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.7;
+      padding: 60px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .header {
+      border-bottom: 3px solid #111;
+      padding-bottom: 24px;
+      margin-bottom: 48px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+      margin-bottom: 28px;
+    }
+
+    .subsection-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #555;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .item {
+      margin-bottom: 28px;
+    }
+
+    .item-lead {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #111;
+    }
+
+    .item p {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .callout {
+      border-left: 3px solid #111;
+      padding: 16px 20px;
+      background: #f8f8f8;
+      margin: 24px 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #111;
+    }
+
+    ul.bullet-list {
+      list-style: none;
+      margin: 12px 0 20px 0;
+    }
+
+    ul.bullet-list li {
+      padding: 4px 0 4px 20px;
+      position: relative;
+      font-size: 15px;
+      color: #333;
+    }
+
+    ul.bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    ul.bullet-list li strong {
+      color: #111;
+    }
+
+    ol.numbered-list {
+      margin: 12px 0 20px 24px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    ol.numbered-list li {
+      padding: 4px 0;
+    }
+
+    ol.numbered-list li strong {
+      color: #111;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    table th {
+      text-align: left;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-bottom: 2px solid #111;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+      color: #333;
+    }
+
+    table td strong {
+      color: #111;
+    }
+
+    table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .code-block {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 16px 0;
+      white-space: pre;
+      overflow-x: auto;
+      color: #222;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #f4f4f4;
+      padding: 2px 6px;
+      font-size: 13px;
+    }
+
+    .stage-block {
+      margin-bottom: 28px;
+    }
+
+    .stage-block h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .stage-block ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    .stage-block ul li {
+      padding: 4px 0 4px 20px;
+      position: relative;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .stage-block ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      background: #999;
+      border-radius: 50%;
+    }
+
+    .stage-block ul li strong {
+      color: #111;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 48px 0;
+    }
+
+    .summary-list {
+      list-style: none;
+      counter-reset: summary;
+    }
+
+    .summary-list li {
+      counter-increment: summary;
+      padding: 12px 0 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .summary-list li:last-child {
+      border-bottom: none;
+    }
+
+    .summary-list li::before {
+      content: counter(summary) ".";
+      font-weight: 700;
+      color: #111;
+      margin-right: 8px;
+    }
+
+    .summary-list li strong {
+      color: #111;
+    }
+
+    @media print {
+      body { padding: 40px 30px; font-size: 12px; }
+      .section { margin-bottom: 36px; }
+      table { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Excalidraw Deck Feedback</h1>
+    <div class="subtitle">Faloni Law -- 2026-03-02 -- Call 3 is Mar 3, 12:00 PM ET</div>
+  </div>
+
+  <!-- WHAT'S WORKING -->
+  <div class="section">
+    <div class="section-label">What's Working</div>
+    <ul class="bullet-list">
+      <li><strong>"DevOps wraps around JST" framing.</strong> Non-threatening, positions JST as the center. This is the right message for David and Trisha.</li>
+      <li><strong>Compliance section</strong> (FDCPA, TCPA, SOC 2, GLBA) speaks directly to Trisha and David's concerns. Keep as-is.</li>
+      <li><strong>JST tool breakdowns</strong> (MaxExtract, MaxUpdater, MaxSecurity, MaxPlans, Built-in Compliance) show we did our homework. Keep as-is.</li>
+      <li><strong>"Assembly line" metaphor</strong> for the pipeline is accessible for non-technical stakeholders.</li>
+      <li><strong>"JST is the engine, DevOps is the garage"</strong> is a strong analogy. Keep it.</li>
+      <li><strong>Build in phases</strong> is the right call. Stages 1-5 as a roadmap makes sense.</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TECH STACK -->
+  <div class="section">
+    <div class="section-label">Their Actual Tech Stack (Confirmed on Calls 1 and 2)</div>
+    <p>This is everything confirmed on the calls. Nothing more, nothing less. The deck should reference only what they actually use, not what we assume they have.</p>
+
+    <table>
+      <tr><th>Tool</th><th>What it does</th><th>Where</th></tr>
+      <tr><td><strong>JST CollectMax</strong></td><td>Central database. Case management, court filings, payments, compliance. ADS backend. File-based EDI only. No REST API.</td><td>On-prem</td></tr>
+      <tr><td><strong>SQL Database</strong></td><td>Custom reporting, cross-referencing (docket + county = account number). Overcomes JST's reporting limitations.</td><td>Likely on-prem</td></tr>
+      <tr><td><strong>Python</strong></td><td>Primary scripting. Email scrapers, click-through court automation, data import/export.</td><td>AWS Workspaces / JST server</td></tr>
+      <tr><td><strong>PowerShell Universal</strong></td><td>Endpoints for FTP transfers, report generation, SQL queries.</td><td>Server infra</td></tr>
+      <tr><td><strong>Amazon Workspaces</strong></td><td>One dedicated VM per programmer. Scripts run here.</td><td>AWS</td></tr>
+      <tr><td><strong>Okta</strong></td><td>MFA for users. Not part of dev stack.</td><td>SaaS</td></tr>
+      <tr><td><strong>BitBucket</strong></td><td>Darsh's scrapers only. Side project. Not team-wide.</td><td>Cloud</td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>What they don't have:</strong>
+      No centralized repo. No CI/CD pipeline. No project management tool confirmed. No team-wide version control. No formal code review process. Sean mentors Darsh informally -- that's it.
+    </div>
+
+    <div class="subsection-label">Scripts Inventory (Confirmed on Calls)</div>
+    <table>
+      <tr><th>Script</th><th>Owner</th><th>Function</th><th>Schedule</th></tr>
+      <tr><td>Wage confirmation scraper</td><td>Darsh</td><td>Scans Jeffers2 inbox for "wage application" keyword, outputs Excel</td><td>Hourly, 24/7</td></tr>
+      <tr><td>Court officer scraper</td><td>Darsh</td><td>Scans for court officer assignments, docket numbers</td><td>Hourly, 24/7</td></tr>
+      <tr><td>Goods &amp; chattel scraper</td><td>Darsh</td><td>Same structure as wage, different keywords</td><td>Hourly, 24/7</td></tr>
+      <tr><td>Jeffers3 email scrapers</td><td>Sean</td><td>Main E-Court contact scrapers. "Set in stone" per Sean.</td><td>Hourly</td></tr>
+      <tr><td>Court filer scripts</td><td>Chris</td><td>Click-through automation for court filings (5 clicks). May be broken.</td><td>Unknown</td></tr>
+      <tr><td>Outlook calendar tool</td><td>Sean</td><td>Trial team calendar integration. Nearly done.</td><td>In progress</td></tr>
+      <tr><td>Docket-to-account mapper</td><td>Resolved</td><td>Pairs county + docket number to account number via SQL</td><td>Working</td></tr>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WHAT NEEDS TO CHANGE -->
+  <div class="section">
+    <div class="section-label">What Needs to Change</div>
+
+    <!-- 1. Pipeline Table -->
+    <div class="item">
+      <div class="item-lead">1. Pipeline Table: Remap Every Stage to GitHub or What They Already Have</div>
+      <p>The current table lists 11 separate tools (Jira, Confluence, SonarQube, Snyk, Terraform, Datadog, PagerDuty, DocuSign, Policy Engine, AWS CodeDeploy, GitHub). That's overwhelming for a team that doesn't have a shared repo yet. Sean said GitHub alone is "a big bridge to cross."</p>
+      <p>The fix isn't removing stages. It's showing that <strong>GitHub handles most of them natively</strong>. One platform, not eleven.</p>
+    </div>
+
+    <table>
+      <tr><th>#</th><th>Phase</th><th>What handles it today</th><th>What handles it in our system</th></tr>
+      <tr><td>01</td><td>Plan</td><td>No formal PM tool confirmed. Ask on call.</td><td>Whatever they already use. GitHub Issues available later.</td></tr>
+      <tr><td>02</td><td>Code</td><td>Siloed AWS Workspaces, no shared repo</td><td><strong>GitHub</strong> -- shared repo, branches, PRs</td></tr>
+      <tr><td>03</td><td>Build</td><td>Manual -- devs run scripts locally</td><td><strong>GitHub Actions</strong> -- comes free with GitHub</td></tr>
+      <tr><td>04</td><td>Test</td><td>Manual -- devs eyeball output</td><td><strong>GitHub Actions</strong> -- linting, validation checks</td></tr>
+      <tr><td>05</td><td>Security</td><td>Nothing</td><td><strong>GitHub built-in</strong> -- basic secret scanning, Dependabot alerts, branch protection (all included with Team, no add-on cost)</td></tr>
+      <tr><td>06</td><td>Legal Gate</td><td>Nothing formal</td><td><strong>GitHub PR approval</strong> -- Trisha required reviewer on debtor communication</td></tr>
+      <tr><td>07</td><td>Deploy</td><td>Manual copy to AWS Workspace</td><td><strong>GitHub Actions</strong> -- auto-deploy to Workspaces on merge</td></tr>
+      <tr><td>08</td><td>Monitor</td><td>Manual -- check if scripts ran</td><td><strong>GitHub Actions logs</strong> + basic alerting (email/Slack on failure)</td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>One new tool. Eight pipeline stages covered.</strong> That's the pitch. SonarQube, Snyk, Terraform, Datadog, PagerDuty, DocuSign, Policy Engine, AWS CodeDeploy are all valid tools for a mature DevOps org. They get added one at a time as the team matures and the volume justifies it.
+    </div>
+
+    <!-- 2. Phase Table Owners -->
+    <div class="item">
+      <div class="item-lead">2. Phase Table Owners Don't Map to Their People</div>
+      <p>The current table uses generic titles: Engineering Lead, Dev Team, Senior Dev + QA, Release Manager, On-Call Engineer, General Counsel. Faloni doesn't have these roles. Use their actual people.</p>
+    </div>
+
+    <table>
+      <tr><th>#</th><th>Phase</th><th>Owner (current deck)</th><th>Owner (revised)</th></tr>
+      <tr><td>01</td><td>Sprint Planning</td><td>Engineering Lead</td><td>Sean (coordinates with Trisha)</td></tr>
+      <tr><td>02</td><td>Development</td><td>Dev Team</td><td>Sean, Chris, Darsh, Brian</td></tr>
+      <tr><td>03</td><td>Code Review</td><td>Senior Dev + QA</td><td>Sean (approver)</td></tr>
+      <tr><td>04</td><td>Staging Deploy</td><td>DevOps</td><td>GitHub Actions (automated)</td></tr>
+      <tr><td>05</td><td>Legal / Compliance</td><td>General Counsel</td><td>Trisha (required reviewer)</td></tr>
+      <tr><td>06</td><td>Production Deploy</td><td>Release Manager</td><td>Sean (merge to main)</td></tr>
+      <tr><td>07</td><td>Post-Deploy Monitoring</td><td>On-Call Engineer</td><td>Automated alerts + on-call dev</td></tr>
+    </table>
+
+    <p><strong>Show them their team in the new system, not generic org chart roles.</strong></p>
+
+    <!-- 3. Remove Terraform -->
+    <div class="item" style="margin-top: 32px;">
+      <div class="item-lead">3. Remove Terraform From Stage 2</div>
+      <p>The current deck says "Build Terraform server and import to GitHub." Terraform provisions and manages cloud infrastructure as code -- spinning up servers, configuring VPCs, managing databases, replicating environments.</p>
+      <p>Faloni's infrastructure is static: an on-prem JST production server (Terraform can't touch on-prem), a handful of AWS Workspaces that don't change, a SQL database (likely on-prem), and PowerShell Universal endpoints. There's nothing dynamic. They're not spinning environments up and down. Terraform manages infrastructure that changes frequently. Theirs doesn't.</p>
+      <p><strong>Replace with:</strong> "Configure GitHub Actions to deploy to existing AWS Workspaces." Same outcome, no new tool, no new syntax to learn.</p>
+      <p><strong>When Terraform enters (future state):</strong> Stage 3+ if we build the ETL pipeline on AWS (RDS, Lambda, S3). Onboarding if they need reproducible Workspace provisioning. Disaster recovery if Workspaces need rebuilding from config. None of those are Phase 1 problems.</p>
+    </div>
+
+    <!-- 4. Remove Jira -->
+    <div class="item">
+      <div class="item-lead">4. Remove Jira/Confluence</div>
+      <p>No project management tool was confirmed on either call. David's "we need to get a list together" comment suggests no formal backlog system. Ask on the call what they use. Whatever it is, GitHub Issues can integrate later. Don't introduce PM tooling we haven't confirmed they need.</p>
+    </div>
+
+    <!-- 5. Remove Snyk -->
+    <div class="item">
+      <div class="item-lead">5. Remove Snyk From Stage 4</div>
+      <p>GitHub Team plan includes secret scanning and Dependabot for free. Covers hardcoded credentials, vulnerable dependencies, and automated alerts. Snyk is a future upgrade when code volume and dependency complexity justify a dedicated scanner. For Python scrapers and PowerShell endpoints, GitHub's built-in tools cover it.</p>
+    </div>
+
+    <!-- 6. Other Stage Revisions -->
+    <div class="item">
+      <div class="item-lead">6. Other Stage Revisions</div>
+      <p><strong>Stage 1</strong> -- Swap "Setup GitHub Organization" from a bullet to the headline. It's not one task among five. It's the entire point of Stage 1.</p>
+      <p><strong>Stage 5</strong> -- Label as future state. "Stage 5 becomes available once Stages 1-4 are stable. This is where specialized tools enter the picture." Don't present it as part of the initial build.</p>
+    </div>
+
+    <!-- 7. Before/After -->
+    <div class="item">
+      <div class="item-lead">7. Add a "Before and After" Slide</div>
+      <p>Missing from the deck entirely. Easiest way to show value without listing tools.</p>
+    </div>
+
+    <div class="callout">
+      <strong>Today:</strong>
+      Darsh writes a scraper on his AWS Workspace. Nobody else can see it, test it, or recover it if his Workspace dies. If Darsh leaves, the code leaves with him. No record of what changed, when, or why.
+    </div>
+
+    <div class="callout">
+      <strong>After Phase 1 (GitHub only):</strong>
+      Darsh writes the same scraper, pushes to his branch. Sean reviews and approves via PR. Code merges to main, deployed automatically. If Darsh leaves, the code is in the repo with full history. Trisha can see every change and who approved it.
+    </div>
+
+    <div class="callout">
+      <strong>After Phase 2 (GitHub Actions):</strong>
+      Same workflow, but now checks run automatically before merge. Failed scripts trigger an alert instead of someone noticing hours later. Trisha gets a dashboard of every change and who approved it.
+    </div>
+
+    <div class="callout">
+      <strong>After Phase 3+ (Specialized tools as needed):</strong>
+      Security scanning catches vulnerabilities before deploy. Dedicated monitoring catches production failures in real-time. Infrastructure-as-code (Terraform) manages new AWS resources. Each stage gets its own specialized tool when the volume justifies it.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- GITHUB ORGANIZATION DETAIL -->
+  <div class="section">
+    <div class="section-label">GitHub Organization Detail (Add as a Section)</div>
+    <p>This is the most important addition to the deck. GitHub is the biggest behavioral change for their team and the current deck gives it one bullet. This section should sit between the intro and the stages.</p>
+
+    <!-- Org + Plan -->
+    <div class="subsection-label">Org + Plan</div>
+    <ul class="bullet-list">
+      <li>GitHub Organization: <code>filoni-law</code></li>
+      <li><strong>GitHub Team plan -- $4/user/month.</strong> 7 users (David, Sean, Trisha, Chris, Brian, Darsh, Syntora) = <strong>$28/month ($336/year).</strong></li>
+      <li>Includes: branch protection, required reviewers, CODEOWNERS enforcement, draft PRs, 3,000 GitHub Actions minutes/month, 2GB Packages storage, basic Dependabot alerts, basic secret scanning on private repos.</li>
+      <li><strong>Enterprise ($21/user/month) is overkill.</strong> Adds SAML SSO, SCIM provisioning, audit log API, 50k Actions minutes. They don't need any of that with 5 devs and Okta already handling MFA.</li>
+      <li><strong>Note:</strong> On call 2, Parker quoted Pro at "$20/mo + $8/seat." That's outdated. Team plan is $4/user/month flat -- significantly cheaper. Correct this on the call.</li>
+    </ul>
+
+    <div class="subsection-label">GitHub Actions: Included and Sufficient</div>
+    <ul class="bullet-list">
+      <li>3,000 minutes/month included with Team plan (Linux runners).</li>
+      <li>A typical lint + validation job takes 1-2 minutes. Even at 50 PRs/month, that's ~100 minutes. They won't come close to the 3,000 limit.</li>
+      <li>Overage (if ever needed): ~$0.008/minute for Linux runners.</li>
+      <li>GitHub reduced hosted runner prices by ~39% as of Jan 2026. Cost is not a concern.</li>
+    </ul>
+
+    <div class="subsection-label">Security: What's Included vs. Paid Add-Ons</div>
+    <table>
+      <tr><th>Feature</th><th>Included with Team?</th><th>Paid add-on?</th></tr>
+      <tr><td>Dependabot alerts (vulnerable dependencies)</td><td>Yes, free</td><td>--</td></tr>
+      <tr><td>Secret scanning on private repos (basic)</td><td>Yes, free</td><td>--</td></tr>
+      <tr><td>Branch protection, required reviewers</td><td>Yes, free</td><td>--</td></tr>
+      <tr><td>Push protection bypass, AI scanning, validity checks</td><td>No</td><td>Secret Protection: $19/active committer/month</td></tr>
+      <tr><td>Copilot Autofix, dependency review, grouped updates</td><td>No</td><td>Code Security: $30/active committer/month</td></tr>
+    </table>
+    <p><strong>For Phase 1-2, the free features cover everything Faloni needs.</strong> The paid add-ons are Stage 5+ when code volume and security requirements justify them. Don't mention these on the call -- just say "GitHub includes built-in security scanning."</p>
+
+    <!-- Repo Strategy -->
+    <div class="subsection-label">Repo Strategy: Monorepo</div>
+    <p>One repo: <code>filoni-law/automation</code></p>
+    <div class="code-block">automation/
+  scrapers/
+    jeffers2/              &lt;- Darsh's wage, court officer, goods &amp; chattel
+    jeffers3/              &lt;- Sean's E-Court scrapers
+  filers/                  &lt;- Chris's court filing click-through scripts
+  etl/                     &lt;- MaxExtract/MaxUpdater wrapper scripts
+  powershell/              &lt;- PowerShell Universal endpoints (FTP, reports, SQL)
+  shared/                  &lt;- DB connections, config, common utilities
+  .github/
+    workflows/             &lt;- GitHub Actions (linting, tests, deploy)
+    CODEOWNERS             &lt;- Auto-assigns reviewers per folder</div>
+    <p><strong>Why monorepo, not separate repos:</strong> They have 5 devs. Separate repos means separate permission configs, separate CI pipelines, separate PR processes to learn. One repo = one set of rules, one place to look, one thing to learn. Lowest friction path from "code on my desktop" to "code in a shared system."</p>
+
+    <!-- Branch Strategy -->
+    <div class="subsection-label">Branch Strategy</div>
+    <table>
+      <tr><th>Branch</th><th>Purpose</th><th>Who pushes here</th></tr>
+      <tr><td><code>main</code></td><td>Production. Protected. Deployed code.</td><td>Nobody directly. Merge only.</td></tr>
+      <tr><td><code>staging</code></td><td>Pre-production validation</td><td>Merges from feature/dev branches</td></tr>
+      <tr><td><code>dev/sean</code></td><td>Sean's working branch</td><td>Sean</td></tr>
+      <tr><td><code>dev/darsh</code></td><td>Darsh's working branch</td><td>Darsh</td></tr>
+      <tr><td><code>dev/chris</code></td><td>Chris's working branch</td><td>Chris</td></tr>
+      <tr><td><code>dev/brian</code></td><td>Brian's working branch</td><td>Brian</td></tr>
+      <tr><td><code>feature/*</code></td><td>New script or enhancement</td><td>Any dev</td></tr>
+      <tr><td><code>hotfix/*</code></td><td>Emergency production fix</td><td>Any dev (fast-track review)</td></tr>
+    </table>
+    <p><strong>This is the key slide for Sean.</strong> Each dev gets their own branch that mirrors how they work today -- isolated workspace, their code, their pace. The difference is it all flows into one place. He already mentors Darsh; PR review formalizes what he's already doing informally.</p>
+
+    <!-- Permissions -->
+    <div class="subsection-label">Permissions</div>
+    <table>
+      <tr><th>Person</th><th>GitHub Role</th><th>What they can do</th></tr>
+      <tr><td>David</td><td>Org Owner</td><td>Billing, org settings. Hands-off.</td></tr>
+      <tr><td>Sean</td><td>Admin</td><td>Repo settings, branch protection, merge authority, onboards devs</td></tr>
+      <tr><td>Trisha</td><td>Write + Required Reviewer</td><td>Pushes nothing, but <strong>required approver</strong> on any PR touching debtor communication, letter templates, or compliance logic. Full audit visibility.</td></tr>
+      <tr><td>Chris, Brian</td><td>Write</td><td>Push to personal/feature branches, open PRs</td></tr>
+      <tr><td>Darsh</td><td>Write</td><td>Push to personal/feature branches, open PRs</td></tr>
+      <tr><td>Syntora (us)</td><td>Admin</td><td>During engagement only. Setup, migration, pipeline config. Removed after handoff.</td></tr>
+    </table>
+    <p><strong>Sean runs the system day-to-day.</strong> This is already how their team operates informally. We're putting structure around it.</p>
+    <p><strong>Trisha gets a gate, not a dashboard she has to manage.</strong> Any PR that touches compliance-sensitive code requires her approval before it can merge. She doesn't need to learn Git. She clicks Approve or Request Changes on a web page.</p>
+    <p><strong>David gets visibility without overhead.</strong> Org Owner means he controls billing and can see everything, but nothing requires his daily attention.</p>
+
+    <!-- Branch Protection -->
+    <div class="subsection-label">Branch Protection Rules on <code>main</code></div>
+    <ul class="bullet-list">
+      <li><strong>Require a pull request</strong> before merging (no direct push, ever)</li>
+      <li><strong>Require 1 approval</strong> (Sean or Trisha depending on scope)</li>
+      <li><strong>Require status checks to pass</strong> (linting first, tests later as they build them)</li>
+      <li><strong>No force push</strong> (nobody can rewrite history)</li>
+      <li><strong>No branch deletion</strong> (main is permanent)</li>
+    </ul>
+    <p><strong>This is the key slide for Trisha.</strong> Every change to production is reviewed, approved, and logged. GitHub keeps a permanent record of who changed what, when, and who approved it. That's her audit trail built into the platform -- no custom tooling required.</p>
+
+    <!-- CODEOWNERS -->
+    <div class="subsection-label">CODEOWNERS File</div>
+    <p>GitHub supports a CODEOWNERS file that automatically assigns reviewers based on what files a PR touches.</p>
+    <div class="code-block"># CODEOWNERS - filoni-law/automation
+
+# Sean reviews everything by default
+*                           @sean-barlisan
+
+# Trisha must approve changes to debtor communication logic
+/filers/                    @sean-barlisan @trisha
+/etl/                       @sean-barlisan @trisha
+
+# Darsh owns his scrapers, Sean still reviews
+/scrapers/jeffers2/         @darsh-patel @sean-barlisan
+
+# Sean owns his scrapers
+/scrapers/jeffers3/         @sean-barlisan</div>
+    <p>This means: Darsh opens a PR changing a Jeffers2 scraper -- Sean is automatically tagged for review. Chris opens a PR changing a filer script -- both Sean and Trisha are automatically tagged. Nobody has to remember to tag the right person. The system enforces it.</p>
+
+    <!-- Migration -->
+    <div class="subsection-label">How Migration Actually Works (No Downtime)</div>
+    <ol class="numbered-list">
+      <li>We create the org, repo, and folder structure</li>
+      <li>Each dev's existing scripts get imported into their section (Sean's scrapers into <code>scrapers/jeffers3/</code>, Darsh's into <code>scrapers/jeffers2/</code>, etc.)</li>
+      <li>Scripts keep running on their current AWS Workspaces -- nothing changes day one</li>
+      <li>Devs start making changes in GitHub, pushing to their dev branch</li>
+      <li>Once comfortable, we wire GitHub Actions to deploy from <code>main</code> to the Workspaces</li>
+      <li>Old workflow dies naturally -- no forced cutover, no "migration day"</li>
+    </ol>
+    <p><strong>Nobody's scripts stop running.</strong> Nobody's daily work changes until they're ready. The repo wraps around their existing workflow the same way DevOps wraps around JST.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- REVISED STAGES -->
+  <div class="section">
+    <div class="section-label">Revised Stages (Suggested Rewrite)</div>
+
+    <div class="stage-block">
+      <h3>Stage 1: GitHub + Documentation</h3>
+      <ul>
+        <li>Set up GitHub Organization (<code>filoni-law</code>, Team plan, ~$28/mo)</li>
+        <li>Create monorepo (<code>automation</code>) with folder structure</li>
+        <li>Import existing scripts from each dev's AWS Workspace</li>
+        <li>Document the current JST setup, data flows, and script inventory</li>
+        <li>Map compliance requirements (what code touches debtor data)</li>
+        <li>Configure branch protection, permissions, CODEOWNERS</li>
+      </ul>
+    </div>
+
+    <div class="stage-block">
+      <h3>Stage 2: GitHub Actions + Deployment Pipeline</h3>
+      <ul>
+        <li>Configure GitHub Actions to run linting and basic validation on every PR</li>
+        <li>Set up auto-deploy from <code>main</code> to AWS Workspaces (replaces manual copy)</li>
+        <li>Create separate deploy targets: staging Workspace and production Workspace</li>
+        <li>Set up AWS backups and test recovery process</li>
+        <li>Enable GitHub secret scanning and Dependabot</li>
+      </ul>
+    </div>
+
+    <div class="stage-block">
+      <h3>Stage 3: ETL Pipeline + Audit Trail</h3>
+      <ul>
+        <li>Build MaxExtract/MaxUpdater wrapper scripts in the repo</li>
+        <li>ETL pipeline: Python script at 2:00 AM EST extracts account data, validates, loads into secure database (AWS RDS)</li>
+        <li>Extracted data feeds report generation, client portal, and audit logs</li>
+        <li>Create append-only audit table logging all data access, pipeline runs, and changes</li>
+        <li>All ETL code goes through the same PR/review process as everything else</li>
+      </ul>
+    </div>
+
+    <div class="stage-block">
+      <h3>Stage 4: Compliance Gate + Security Hardening</h3>
+      <ul>
+        <li>Implement CODEOWNERS so Trisha is required reviewer on compliance-sensitive paths</li>
+        <li>GitHub Actions checks for SSN patterns, PII exposure, hardcoded credentials</li>
+        <li>Flag any PR that touches debtor communication logic for compliance review</li>
+        <li>Timestamp and log all approvals into the audit trail</li>
+        <li>Evaluate specialized security tools (Snyk, SonarQube) based on actual needs at this point</li>
+      </ul>
+    </div>
+
+    <div class="stage-block">
+      <h3>Stage 5: Infrastructure-as-Code + Observability (Future State)</h3>
+      <ul>
+        <li><strong>Terraform enters here</strong> -- codify any new AWS resources (RDS, Lambda, S3) built in Stage 3</li>
+        <li>Terraform configs for reproducible Workspace provisioning (new dev onboarding)</li>
+        <li>Add monitoring dashboards (evaluate Datadog, CloudWatch, or simpler options based on needs)</li>
+        <li>Build runbooks for common failure scenarios</li>
+        <li>Simulate system failures to test recovery process</li>
+        <li>This stage activates after Stages 1-4 are stable and running</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TOOL TIMELINE -->
+  <div class="section">
+    <div class="section-label">Tool Introduction Timeline</div>
+    <p>Explicit timeline for when each tool enters. Shows the scale path without front-loading complexity.</p>
+
+    <table>
+      <tr><th>Tool</th><th>When</th><th>Cost</th><th>Why then</th></tr>
+      <tr><td><strong>GitHub Team</strong> (repo, PRs, branches)</td><td>Stage 1</td><td>$4/user/mo ($28/mo for 7)</td><td>Core problem: code is siloed. This fixes it.</td></tr>
+      <tr><td><strong>GitHub Actions</strong> (lint, test, deploy)</td><td>Stage 2</td><td>Included -- 3,000 min/mo</td><td>Automated linting, testing, deployment. No additional cost.</td></tr>
+      <tr><td><strong>Basic Secret Scanning</strong></td><td>Stage 2</td><td>Included with Team</td><td>Catches hardcoded credentials in private repos.</td></tr>
+      <tr><td><strong>Dependabot Alerts</strong></td><td>Stage 2</td><td>Included with Team</td><td>Flags vulnerable dependencies. No additional cost.</td></tr>
+      <tr><td><strong>CODEOWNERS</strong></td><td>Stage 1 / Stage 4</td><td>Included with Team</td><td>Auto-assigns reviewers. Set up early, enforce when comfortable.</td></tr>
+      <tr><td><strong>Secret Protection</strong> (advanced)</td><td>Stage 5+</td><td>$19/active committer/mo</td><td>AI scanning, push protection bypass, validity checks.</td></tr>
+      <tr><td><strong>Code Security</strong> (advanced)</td><td>Stage 5+</td><td>$30/active committer/mo</td><td>Copilot Autofix, dependency review, grouped updates.</td></tr>
+      <tr><td><strong>Terraform</strong></td><td>Stage 5</td><td>Free (open source)</td><td>Codify new AWS resources from Stage 3.</td></tr>
+      <tr><td><strong>Datadog / CloudWatch</strong></td><td>Stage 5+</td><td>Varies</td><td>When pipeline volume justifies dedicated monitoring.</td></tr>
+      <tr><td><strong>PM tooling</strong></td><td>Only if needed</td><td>--</td><td>Ask what they use. GitHub Issues covers basics.</td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>The message: GitHub is the platform. Everything else plugs in when it's earned.</strong>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BOTTLENECK ARGUMENT -->
+  <div class="section">
+    <div class="section-label">Why This Matters Now -- The Bottleneck Argument</div>
+    <p>The deck needs to address their immediate pain head-on. Their dev team is already behind. Chris and Sean are bottlenecked. The backlog is growing. David said "we need to get a list together of things that we really want" -- they can't even enumerate the backlog, let alone work through it. They came to us asking for another programmer. The deck should explain why infrastructure solves the bottleneck faster than headcount -- and sets them up for what's next.</p>
+
+    <div class="item">
+      <div class="item-lead">Today: adding a new engineer is slow.</div>
+      <p>A new dev gets an AWS Workspace. They ask Sean where the code is. Sean points them to his Workspace, explains his folder structure, walks them through the scripts manually. There's no README, no repo to clone, no onboarding path. Darsh said the learning curve "wasn't too big" because he had Sean. But Sean's time is the bottleneck. Every hour Sean spends onboarding is an hour he's not writing code. Adding a 6th programmer into this environment creates a 6th silo and pulls Sean away from his own work even more.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">After GitHub: a new engineer clones the repo and starts.</div>
+      <p>They see the folder structure. They see the scripts. They see the commit history of every change. They see the CODEOWNERS file telling them who owns what. They read the PR history to understand why things were built the way they were. They open a PR, Sean reviews it in 10 minutes instead of spending a week walking someone through his Workspace, and they're contributing on day one. Sean's mentorship time drops from weeks to hours.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">After GitHub Actions: the team moves faster without more people.</div>
+      <p>Linting catches syntax errors before Sean ever sees the PR. Automated deployment means nobody manually copies files to a Workspace. Failed scripts alert the team instead of someone noticing hours later. The 4-5 devs they already have become significantly more productive -- equivalent to adding 1-2 headcount without a single new hire.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">ROI for David.</div>
+      <p>He's paying 4-5 programmer salaries ($60-80k+ each = $300-400k/yr in dev payroll). If infrastructure makes those people 30% more productive, that's equivalent to adding 1.5 headcount without hiring. The entire engagement ($16-25k) pays for itself in a couple of months. They asked for a new programmer. We're giving them the equivalent of 1-2 new programmers by unlocking their existing team.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">The foundation for AI.</div>
+      <p>They said AI isn't on the table for this engagement. That's fine. But the infrastructure we're building is the prerequisite for when they're ready. AI agents need three things to work with a codebase:</p>
+      <ol class="numbered-list">
+        <li><strong>A structured repo to read from.</strong> An AI can't navigate 5 separate AWS Workspaces with no folder conventions. It can navigate a monorepo with clear folder structure and commit history.</li>
+        <li><strong>A pipeline to deploy through.</strong> An AI can't SSH into a Workspace and copy files. It can open a PR that triggers GitHub Actions to lint, test, and deploy.</li>
+        <li><strong>A review process to gate the output.</strong> An AI shouldn't push code to production unchecked. It opens a PR, Sean reviews it, Trisha approves if it touches compliance code. Same process as any human dev.</li>
+      </ol>
+      <p>Without GitHub, AI has nowhere to plug in. With it, the door is open. When they're ready -- whether that's 6 months or 2 years from now -- an AI agent could draft a new scraper, open a PR, Sean reviews it, and it deploys through the same pipeline as any human-written code. The repo structure makes that possible. Without it, AI is a non-starter.</p>
+    </div>
+
+    <div class="callout">
+      <strong>Don't sell AI on this call.</strong> But plant the seed: "The infrastructure we're building doesn't just solve today's bottleneck. It's the foundation that lets you scale with both people and technology."
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- QUESTIONS FOR CALL -->
+  <div class="section">
+    <div class="section-label">Questions to Ask on the Call (Mar 3)</div>
+    <p>These gaps need to be filled before or during the proposal presentation:</p>
+    <ol class="numbered-list">
+      <li><strong>Project management:</strong> "What do you currently use to track work requests and the backlog David mentioned? Spreadsheet, email, something in JST?" -- determines whether we mention PM tooling at all.</li>
+      <li><strong>Chris:</strong> Is he on this call? If not, we're still missing context on the filer scripts and whether they're broken.</li>
+      <li><strong>AWS Workspace setup:</strong> Are they provisioned manually through the AWS console? Who has AWS admin access? This informs whether Terraform has value for workspace management later.</li>
+      <li><strong>SQL database location:</strong> On-prem alongside JST, or hosted separately? Affects the Stage 3 ETL pipeline design.</li>
+      <li><strong>Budget reaction:</strong> David asked about hourly vs fixed vs maintenance on call 1. Present all three phases with fixed prices. Watch his reaction to the Phase 1 number ($3,500-$5,000) before going deeper on Phase 2.</li>
+    </ol>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-label">Summary of Changes for Meghna</div>
+    <ol class="summary-list">
+      <li><strong>Rewrite the pipeline table</strong> so every stage maps to GitHub or existing tools. One new platform, not eleven.</li>
+      <li><strong>Rewrite the phase owners</strong> using Faloni names and roles, not generic enterprise titles.</li>
+      <li><strong>Add the GitHub deep-dive</strong> (org, repo, branches, permissions, CODEOWNERS, migration plan) as its own major section between the intro and the stages.</li>
+      <li><strong>Add a before/after slide</strong> showing the same developer workflow at each phase of adoption.</li>
+      <li><strong>Add the tech stack table</strong> showing exactly what they confirmed on the calls -- anchor the deck in their reality.</li>
+      <li><strong>Add the tool timeline</strong> showing when each tool enters and why. Sets up the scale story without front-loading.</li>
+      <li><strong>Add the bottleneck argument.</strong> Address the immediate pain: their team is behind, adding headcount into the current setup is slow, GitHub infrastructure makes the existing team faster and makes onboarding instant. Include the ROI math for David.</li>
+      <li><strong>Plant the AI seed.</strong> Don't sell AI. But explain that the GitHub infrastructure is the prerequisite -- AI agents need a repo to read, a pipeline to deploy through, and a review process to gate output. Without this foundation, AI can't plug in.</li>
+      <li><strong>Remove Terraform from Stage 2.</strong> It solves a problem they don't have yet. Moves to Stage 5 when new AWS resources need to be codified.</li>
+      <li><strong>Remove Jira/Confluence.</strong> No PM tool was confirmed. Ask on the call first.</li>
+      <li><strong>Remove Snyk from Stage 4.</strong> GitHub's built-in secret scanning + Dependabot covers them for now.</li>
+      <li><strong>Label Stage 5 as future state</strong> so the call focuses on Stages 1-3, which is the actual engagement.</li>
+      <li><strong>Sean is Admin, not Trisha.</strong> Sean runs the GitHub workflow day-to-day. Trisha is the compliance approval gate via required reviewer, not a repo administrator.</li>
+      <li><strong>Keep the compliance section</strong> (FDCPA, TCPA, SOC 2, GLBA) <strong>and the JST tools section as-is.</strong> Both are strong.</li>
+    </ol>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faloni Law -- Proposal Wireframe</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f5f5f5;
+      color: #111;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      padding: 60px 56px;
+      border: 1px solid #ddd;
+      position: relative;
+    }
+
+    .page::before {
+      content: attr(data-slide);
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 36px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      margin-top: 36px;
+    }
+
+    .section-label:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .big-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .big-label {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 28px;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+
+    .stat-box {
+      flex: 1;
+    }
+
+    .callout {
+      border-left: 3px solid #111;
+      padding: 16px 20px;
+      background: #f8f8f8;
+      margin: 20px 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .callout strong {
+      color: #111;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    table th {
+      text-align: left;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-bottom: 2px solid #111;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+      color: #333;
+    }
+
+    table td strong { color: #111; }
+
+    table tr:last-child td { border-bottom: none; }
+
+    ul.bullet-list {
+      list-style: none;
+      margin: 12px 0 20px 0;
+    }
+
+    ul.bullet-list li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      font-size: 15px;
+      color: #333;
+    }
+
+    ul.bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    ul.bullet-list li strong { color: #111; }
+
+    .code-block {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 16px 0;
+      white-space: pre;
+      overflow-x: auto;
+      color: #222;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #f4f4f4;
+      padding: 2px 6px;
+      font-size: 13px;
+    }
+
+    .phase-card {
+      border: 2px solid #111;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .phase-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .phase-card .price {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .phase-card p {
+      margin-bottom: 8px;
+    }
+
+    .phase-card ul {
+      list-style: none;
+      margin: 8px 0 0 0;
+    }
+
+    .phase-card ul li {
+      padding: 3px 0 3px 18px;
+      position: relative;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .phase-card ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 5px;
+      height: 5px;
+      background: #999;
+      border-radius: 50%;
+    }
+
+    .vs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 20px 0;
+    }
+
+    .vs-box {
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+
+    .vs-box h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: #111;
+    }
+
+    .vs-box.current { background: #f8f8f8; }
+    .vs-box.proposed { background: #fff; border-color: #111; border-width: 2px; }
+
+    .vs-box ul {
+      list-style: none;
+    }
+
+    .vs-box ul li {
+      padding: 4px 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .notes-box {
+      background: #fffbe6;
+      border: 1px solid #e6d85e;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: #665d00;
+    }
+
+    .notes-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 32px 0;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { border: none; margin: 0; padding: 40px 30px; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1: COVER -->
+  <div class="page" data-slide="01">
+    <div class="page-title" style="font-size: 36px; margin-bottom: 16px;">Faloni Law</div>
+    <div style="font-size: 18px; color: #555; margin-bottom: 48px;">Centralized DevOps Infrastructure Proposal</div>
+
+    <div class="section-label">Prepared for</div>
+    <table>
+      <tr><td><strong>David Faloni Jr.</strong></td><td>Managing Partner</td></tr>
+      <tr><td><strong>Trisha</strong></td><td>Programming Director</td></tr>
+      <tr><td><strong>Sean Barlisan</strong></td><td>Technical Lead</td></tr>
+      <tr><td><strong>Chris</strong></td><td>Lead Programmer</td></tr>
+      <tr><td><strong>Darsh Patel</strong></td><td>Programmer</td></tr>
+    </table>
+
+    <div class="section-label">Prepared by</div>
+    <p>Syntora -- March 3, 2026</p>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      Open with: "You asked for a programmer. After two calls with your team, we think we can give you something more valuable -- the infrastructure that makes every programmer you have more productive." Set the frame before diving in.
+    </div>
+  </div>
+
+  <!-- SLIDE 2: THE PROBLEM -->
+  <div class="page" data-slide="02">
+    <div class="page-title">The Problem</div>
+    <div class="page-subtitle">What we heard across two calls with your team</div>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">1,000+</div>
+        <div class="big-label">Court emails per day</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">5</div>
+        <div class="big-label">Programmers, each on a separate workspace</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">0</div>
+        <div class="big-label">Shared code repositories</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>"Our one job is to make sure we collect all the data coming in and put it into the system as fast and accurate as possible."</strong> -- Trisha, Call 2
+    </div>
+
+    <ul class="bullet-list">
+      <li><strong>Chris and Sean are bottlenecked.</strong> Lead programmers too busy to get to backlog items.</li>
+      <li><strong>Code is siloed.</strong> Each dev has their own AWS Workspace. No shared repo, no visibility, no version control.</li>
+      <li><strong>No onboarding path.</strong> When Darsh started, Sean walked him through everything manually. Every new hire is the same.</li>
+      <li><strong>No code review.</strong> Bugs go to production without a second pair of eyes. Scripts process 1000+ emails/day with no safety net.</li>
+      <li><strong>No audit trail on code changes.</strong> If a script breaks, no record of what changed, when, or why.</li>
+    </ul>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      Don't linger here. State the problem, validate it with their own words, move to the solution. David already knows this. The point is to show we listened.
+    </div>
+  </div>
+
+  <!-- SLIDE 3: WHAT WE'RE NOT PROPOSING -->
+  <div class="page" data-slide="03">
+    <div class="page-title">What We're Not Proposing</div>
+    <div class="page-subtitle">Setting expectations before the solution</div>
+
+    <ul class="bullet-list">
+      <li><strong>We are not replacing JST.</strong> JST is your engine. It handles accounts, letters, payments, and compliance. We are not touching it. DevOps wraps around JST -- the server it runs on, the data that flows in and out, the scripts that connect everything.</li>
+      <li><strong>We are not touching existing scrapers.</strong> Sean's Jeffers3 scrapers are set in stone. Darsh's scrapers work. We're not rewriting what works.</li>
+      <li><strong>We are not sending you a random contractor.</strong> Adding a 6th programmer into 5 separate silos creates a 6th silo. That doesn't fix the root cause.</li>
+      <li><strong>We are not introducing 11 new tools.</strong> One platform. GitHub. Everything else plugs in later when you need it.</li>
+    </ul>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      This slide is for David. He asked for a programmer. We're reframing without making him feel wrong. "You don't need a 6th person working alone. You need the 5 people you already have working together."
+    </div>
+  </div>
+
+  <!-- SLIDE 4: WHAT WE ARE PROPOSING -->
+  <div class="page" data-slide="04">
+    <div class="page-title">What We Are Proposing</div>
+    <div class="page-subtitle">One platform that solves eight problems</div>
+
+    <div class="callout">
+      <strong>GitHub is the platform. Everything else plugs in when it's earned.</strong>
+    </div>
+
+    <table>
+      <tr><th>#</th><th>Problem</th><th>Today</th><th>With GitHub</th></tr>
+      <tr><td>01</td><td>Code storage</td><td>Siloed on each Workspace</td><td><strong>One shared repository</strong></td></tr>
+      <tr><td>02</td><td>Code review</td><td>None</td><td><strong>Pull request approvals</strong></td></tr>
+      <tr><td>03</td><td>Deployment</td><td>Manual file copy</td><td><strong>Automated via GitHub Actions</strong></td></tr>
+      <tr><td>04</td><td>Testing</td><td>Manual / eyeball</td><td><strong>Automated linting + validation</strong></td></tr>
+      <tr><td>05</td><td>Security</td><td>Nothing</td><td><strong>Secret scanning + dependency alerts</strong></td></tr>
+      <tr><td>06</td><td>Compliance gate</td><td>Nothing formal</td><td><strong>Trisha required approver on sensitive code</strong></td></tr>
+      <tr><td>07</td><td>Audit trail</td><td>None</td><td><strong>Full change history, who approved what</strong></td></tr>
+      <tr><td>08</td><td>Onboarding</td><td>Sean walks them through manually</td><td><strong>Clone the repo, read the history, start contributing</strong></td></tr>
+    </table>
+
+    <p style="margin-top: 20px;"><strong>Cost: $4/user/month.</strong> 7 users = $28/month. Everything above is included.</p>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      Pause after the $28/month line. Let it land. David was expecting a discussion about hourly rates and programmer salaries. $28/month for the platform is a non-issue. The cost is our engagement, not the tooling.
+    </div>
+  </div>
+
+  <!-- SLIDE 5: BEFORE AND AFTER -->
+  <div class="page" data-slide="05">
+    <div class="page-title">Before and After</div>
+    <div class="page-subtitle">Same scenario, different infrastructure</div>
+
+    <p style="margin-bottom: 24px;"><strong>Scenario:</strong> Darsh writes a new email scraper for a court keyword.</p>
+
+    <div class="vs-grid">
+      <div class="vs-box current">
+        <h4>Today</h4>
+        <ul>
+          <li>Darsh writes the script on his Workspace</li>
+          <li>Nobody else can see it</li>
+          <li>No review before it runs in production</li>
+          <li>If his Workspace dies, the code is gone</li>
+          <li>If Darsh leaves, the code leaves with him</li>
+          <li>No record of what changed or when</li>
+        </ul>
+      </div>
+      <div class="vs-box proposed">
+        <h4>After GitHub</h4>
+        <ul>
+          <li>Darsh writes the script, pushes to his branch</li>
+          <li>Sean reviews and approves via pull request</li>
+          <li>Automated checks catch syntax errors first</li>
+          <li>Code merges to main, deploys automatically</li>
+          <li>If Darsh leaves, full history is in the repo</li>
+          <li>Trisha sees every change and who approved it</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      This is the key slide for Sean. Say his name: "Sean, this is what you're already doing informally with Darsh. PR review just puts structure around it." He mentors Darsh already. This formalizes it without adding overhead.
+    </div>
+  </div>
+
+  <!-- SLIDE 6: HOW GITHUB WORKS FOR YOUR TEAM -->
+  <div class="page" data-slide="06">
+    <div class="page-title">How GitHub Works for Your Team</div>
+    <div class="page-subtitle">Your people, your code, one shared system</div>
+
+    <div class="section-label">Repository Structure</div>
+    <div class="code-block">filoni-law/automation/
+  scrapers/
+    jeffers2/          Darsh -- wage, court officer, goods &amp; chattel
+    jeffers3/          Sean -- E-Court scrapers
+  filers/              Chris -- court filing automation
+  etl/                 MaxExtract/MaxUpdater wrappers
+  powershell/          PowerShell Universal endpoints
+  shared/              DB connections, config, utilities</div>
+
+    <div class="section-label">Branch Strategy</div>
+    <table>
+      <tr><th>Branch</th><th>Purpose</th><th>Who</th></tr>
+      <tr><td><code>main</code></td><td>Production. Protected. No direct push.</td><td>Merge only</td></tr>
+      <tr><td><code>staging</code></td><td>Pre-production validation</td><td>Merges from dev/feature</td></tr>
+      <tr><td><code>dev/sean</code></td><td>Sean's working branch</td><td>Sean</td></tr>
+      <tr><td><code>dev/darsh</code></td><td>Darsh's working branch</td><td>Darsh</td></tr>
+      <tr><td><code>dev/chris</code></td><td>Chris's working branch</td><td>Chris</td></tr>
+      <tr><td><code>dev/brian</code></td><td>Brian's working branch</td><td>Brian</td></tr>
+    </table>
+
+    <p><strong>Each dev keeps their own workspace.</strong> The branch mirrors how you work today -- isolated, your code, your pace. The difference is it all flows into one place.</p>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      If Chris is on the call, address him directly: "Chris, your filer scripts get their own folder. Nobody touches them without your review." Ownership stays with the person who built it.
+    </div>
+  </div>
+
+  <!-- SLIDE 7: PERMISSIONS & SECURITY -->
+  <div class="page" data-slide="07">
+    <div class="page-title">Permissions and Security</div>
+    <div class="page-subtitle">Who can do what -- by name</div>
+
+    <table>
+      <tr><th>Person</th><th>Role</th><th>What they can do</th></tr>
+      <tr><td><strong>David</strong></td><td>Org Owner</td><td>Billing, org settings. Hands-off unless you want to be involved.</td></tr>
+      <tr><td><strong>Sean</strong></td><td>Admin</td><td>Repo settings, branch protection, merge authority, onboards new devs.</td></tr>
+      <tr><td><strong>Trisha</strong></td><td>Required Reviewer</td><td>Required approver on any code touching debtor communication, letter templates, or filer scripts. Full audit visibility.</td></tr>
+      <tr><td><strong>Chris, Brian</strong></td><td>Write</td><td>Push to their own branches, open pull requests. Can't merge to production without review.</td></tr>
+      <tr><td><strong>Darsh</strong></td><td>Write</td><td>Push to their own branches, open pull requests. Can't merge to production without review.</td></tr>
+      <tr><td><strong>Syntora</strong></td><td>Admin (temporary)</td><td>Setup, migration, pipeline configuration. Removed after handoff. You own everything.</td></tr>
+    </table>
+
+    <div class="section-label">Protection Rules on Production</div>
+    <ul class="bullet-list">
+      <li>Every change requires a pull request (no direct push)</li>
+      <li>At least 1 approval required (Sean or Trisha depending on scope)</li>
+      <li>Automated checks must pass before merge</li>
+      <li>Nobody can rewrite history (no force push)</li>
+      <li>Full log of every change, every approval, every deployment</li>
+    </ul>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      This is the key slide for Trisha. "Trisha, you don't need to learn Git. When someone changes code that touches debtor communication, you get a notification. You click Approve or Request Changes on a web page. That's it. Every approval is timestamped and permanent." Address her security concern directly.
+    </div>
+  </div>
+
+  <!-- SLIDE 8: MIGRATION -->
+  <div class="page" data-slide="08">
+    <div class="page-title">How We Get There</div>
+    <div class="page-subtitle">Zero downtime. No disruption to daily operations.</div>
+
+    <table>
+      <tr><th>Step</th><th>What happens</th><th>Impact on your team</th></tr>
+      <tr><td>1</td><td>We create the GitHub org, repo, and folder structure</td><td>None. Your scripts keep running.</td></tr>
+      <tr><td>2</td><td>We import each dev's existing scripts into the repo</td><td>None. Originals stay on Workspaces.</td></tr>
+      <tr><td>3</td><td>Devs start pushing changes to GitHub instead of only saving locally</td><td>Small behavior change. Sean leads adoption.</td></tr>
+      <tr><td>4</td><td>We wire GitHub Actions to deploy from main to Workspaces</td><td>Deployment becomes automatic.</td></tr>
+      <tr><td>5</td><td>Old workflow dies naturally</td><td>No forced cutover. No "migration day."</td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>Nobody's scripts stop running.</strong> The repo wraps around your existing workflow the same way DevOps wraps around JST.
+    </div>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      Sean's concern was "big bridge to cross." This slide shows the bridge has guard rails and they walk across it at their own pace. Emphasize: nothing breaks, nothing stops, scripts keep processing 1000+ emails/day throughout the entire migration.
+    </div>
+  </div>
+
+  <!-- SLIDE 9: STAGED ROLLOUT -->
+  <div class="page" data-slide="09">
+    <div class="page-title">Staged Rollout</div>
+    <div class="page-subtitle">Build in phases. Each stage stands on its own.</div>
+
+    <div class="phase-card">
+      <h3>Stage 1: GitHub + Documentation</h3>
+      <ul>
+        <li>Set up GitHub Organization and repository</li>
+        <li>Import all existing scripts from each Workspace</li>
+        <li>Document current JST setup, data flows, script inventory</li>
+        <li>Map compliance requirements (what code touches debtor data)</li>
+        <li>Configure permissions, branch protection, code ownership rules</li>
+      </ul>
+    </div>
+
+    <div class="phase-card">
+      <h3>Stage 2: Automation Pipeline</h3>
+      <ul>
+        <li>GitHub Actions: automated linting and validation on every pull request</li>
+        <li>Auto-deploy from main to AWS Workspaces (replaces manual copy)</li>
+        <li>Staging environment for testing before production</li>
+        <li>AWS backups and recovery testing</li>
+        <li>Enable secret scanning and dependency alerts</li>
+      </ul>
+    </div>
+
+    <div class="phase-card">
+      <h3>Stage 3: ETL Pipeline + Audit Trail</h3>
+      <ul>
+        <li>MaxExtract/MaxUpdater wrapper scripts in the repo</li>
+        <li>Nightly ETL pipeline: extract, validate, load into secure database</li>
+        <li>Append-only audit table for all data access and pipeline runs</li>
+        <li>Compliance gate: Trisha required reviewer on sensitive code paths</li>
+      </ul>
+    </div>
+
+    <div class="phase-card" style="border-style: dashed; border-color: #999;">
+      <h3 style="color: #777;">Stage 4-5: Future State (When Ready)</h3>
+      <ul>
+        <li>Advanced security scanning and compliance automation</li>
+        <li>Infrastructure-as-code for new AWS resources</li>
+        <li>Monitoring dashboards and alerting</li>
+        <li>Runbooks and failure simulation</li>
+      </ul>
+    </div>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      Stage 4-5 is dashed intentionally. It's the vision, not the ask. The engagement is Stages 1-3. If David asks about 4-5, say "that's where we go once the foundation is stable. We'll evaluate together."
+    </div>
+  </div>
+
+  <!-- SLIDE 10: PRICING -->
+  <div class="page" data-slide="10">
+    <div class="page-title">Pricing</div>
+    <div class="page-subtitle">Fixed fees. No surprises. You own everything.</div>
+
+    <div class="phase-card">
+      <h3>Phase 1: Discovery + Infrastructure Plan</h3>
+      <div class="price">$3,500 -- $5,000</div>
+      <p>Fixed fee. Audit every workspace, script, and deployment process. Map full data flow. Deliver written infrastructure plan: repo structure, branching strategy, pipeline design, security model, migration path.</p>
+    </div>
+
+    <div class="phase-card">
+      <h3>Phase 2: Implementation</h3>
+      <div class="price">$12,000 -- $20,000</div>
+      <p>Fixed fee. GitHub org setup, monorepo with per-developer branching, GitHub Actions pipelines, incremental script migration (no downtime), security model, onboarding documentation.</p>
+    </div>
+
+    <div class="phase-card">
+      <h3>Phase 3: Ongoing Support (Optional)</h3>
+      <div class="price">$2,000 -- $4,000/month</div>
+      <p>Monthly retainer. New script development, pipeline maintenance, onboarding support for future hires, backlog items as capacity allows.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">$28</div>
+        <div class="big-label">GitHub platform cost per month (7 users)</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">$16-25k</div>
+        <div class="big-label">Total first engagement (Phases 1+2)</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">100%</div>
+        <div class="big-label">IP owned by Faloni Law</div>
+      </div>
+    </div>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      David asked about hourly vs fixed vs maintenance on call 1. He thinks in those terms. Present all three with fixed prices. Fixed feels safer to a law firm owner than open-ended hourly. Watch his reaction to the Phase 1 number before going deeper on Phase 2. If he balks at $4k for a plan, he won't pay for implementation -- and that's useful to know early. Phase 3 retainer is optional. Frame it that way.
+    </div>
+  </div>
+
+  <!-- SLIDE 11: ROI -->
+  <div class="page" data-slide="11">
+    <div class="page-title">Return on Investment</div>
+    <div class="page-subtitle">The math for David</div>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">$300-400k</div>
+        <div class="big-label">Annual dev payroll (4-5 programmers)</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">30%</div>
+        <div class="big-label">Productivity gain from shared infrastructure</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>If infrastructure makes your existing team 30% more productive, that's equivalent to adding 1.5 headcount without a single new hire.</strong> The entire engagement pays for itself in a couple of months.
+    </div>
+
+    <div class="section-label">Where the time savings come from</div>
+    <ul class="bullet-list">
+      <li><strong>Onboarding:</strong> New dev clones the repo and starts contributing day one instead of weeks of Sean's time.</li>
+      <li><strong>Code review:</strong> Bugs caught before production, not after. Fewer fire drills.</li>
+      <li><strong>Deployment:</strong> Automated. Nobody manually copying files to Workspaces.</li>
+      <li><strong>Visibility:</strong> Sean can see what Chris is building. Chris can see what Darsh is building. No more knowledge silos.</li>
+      <li><strong>Audit trail:</strong> Trisha gets compliance visibility without someone building a custom tool for it.</li>
+    </ul>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      Don't push the 30% number hard -- it's an estimate. The point is directional: "You asked for a new programmer. We're giving you the equivalent of 1-2 new programmers by unlocking the team you already have."
+    </div>
+  </div>
+
+  <!-- SLIDE 12: THE FOUNDATION FOR WHAT'S NEXT -->
+  <div class="page" data-slide="12">
+    <div class="page-title">The Foundation for What's Next</div>
+    <div class="page-subtitle">This infrastructure doesn't just solve today's problem</div>
+
+    <div class="section-label">When you hire your next programmer</div>
+    <p>They clone the repo. They see the folder structure, the scripts, the commit history, who owns what. They open a pull request, Sean reviews it, and they're contributing. No weeks of shadowing. No "ask Sean where the code is."</p>
+
+    <div class="section-label">When the tools mature</div>
+    <p>GitHub is the platform. As your needs grow, specialized tools plug in one at a time -- advanced security scanning, dedicated monitoring, infrastructure-as-code. Each one connects to GitHub. You never start over.</p>
+
+    <div class="section-label">When you're ready for AI</div>
+    <p>AI agents need three things: a structured repo to read from, a pipeline to deploy through, and a review process to gate the output. Without GitHub, AI has nowhere to plug in. With it, the door is open. An AI agent could draft a scraper, open a pull request, Sean reviews it, and it deploys through the same pipeline as any human-written code.</p>
+
+    <div class="callout">
+      <strong>The infrastructure we're building doesn't just solve today's bottleneck. It's the foundation that lets you scale with both people and technology.</strong>
+    </div>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      Don't sell AI. Plant the seed. One sentence: "You told us AI isn't on the table right now, and that's fine. But when you're ready, the infrastructure we're building is what makes it possible." Then move to next steps.
+    </div>
+  </div>
+
+  <!-- SLIDE 13: NEXT STEPS -->
+  <div class="page" data-slide="13">
+    <div class="page-title">Next Steps</div>
+    <div class="page-subtitle">If this makes sense, here's how we start</div>
+
+    <table>
+      <tr><th>Step</th><th>What</th><th>Who</th></tr>
+      <tr><td>1</td><td>Align on Phase 1 scope and sign engagement letter</td><td>David + Parker</td></tr>
+      <tr><td>2</td><td>Schedule workspace access with Sean and Darsh</td><td>Sean + Syntora</td></tr>
+      <tr><td>3</td><td>Get Chris on a call to discuss filer scripts</td><td>David (coordinates)</td></tr>
+      <tr><td>4</td><td>Audit begins: document every script, schedule, data flow</td><td>Syntora</td></tr>
+      <tr><td>5</td><td>Deliver infrastructure plan for team review</td><td>Syntora</td></tr>
+    </table>
+
+    <hr class="divider">
+
+    <p style="font-size: 16px;"><strong>All intellectual property is owned by Faloni Law.</strong></p>
+    <p>Everything we build, configure, and document belongs to you. We set it up, hand it off, and step back. Ongoing support is optional.</p>
+
+    <div class="notes-box">
+      <strong>Presenter notes</strong>
+      End with the IP line. David and Trisha brought this up multiple times. Close on it. "Everything we build is yours. We're not locking you in. We're setting you up to run this without us."
+    </div>
+  </div>
+
+  <!-- SLIDE 14: QUESTIONS TO ASK -->
+  <div class="page" data-slide="14" style="background: #fafafa;">
+    <div class="page-title">Internal: Questions for the Call</div>
+    <div class="page-subtitle">Do not present this slide. Gaps to fill during the conversation.</div>
+
+    <ul class="bullet-list">
+      <li><strong>Project management:</strong> "What do you currently use to track work requests and the backlog you mentioned, David?" Determines if we mention PM tooling at all.</li>
+      <li><strong>Chris:</strong> Is he on this call? If not, we're still missing filer script context. Push for a follow-up with him.</li>
+      <li><strong>AWS Workspace provisioning:</strong> Manual through the console? Who has admin? Informs future Terraform value.</li>
+      <li><strong>SQL database location:</strong> On-prem with JST or hosted separately? Affects Stage 3 ETL design.</li>
+      <li><strong>Budget reaction:</strong> Watch David's face on the Phase 1 number. If he doesn't flinch, move to Phase 2 pricing confidently.</li>
+      <li><strong>Sean's buy-in:</strong> He said "big bridge to cross" and "the whole team should go over it." Ask him directly: "Sean, does the branch strategy we showed make sense for how your team works?"</li>
+    </ul>
+  </div>
+
+</body>
+</html>

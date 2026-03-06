@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faloni Law -- Infrastructure Proposal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @media print {
+      body { padding: 0; }
+      .page { border: none; box-shadow: none; margin: 0; page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+      .no-print { display: none; }
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f0f0f0;
+      color: #111;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 860px;
+      margin: 0 auto 48px auto;
+      padding: 64px 60px;
+      border: 1px solid #ddd;
+    }
+
+    /* ---- Typography ---- */
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #111;
+    }
+
+    p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 48px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    strong { color: #111; }
+
+    /* ---- Layout ---- */
+
+    .stat-row {
+      display: flex;
+      gap: 40px;
+      margin: 28px 0 36px 0;
+    }
+
+    .stat-box { flex: 1; }
+
+    .big-number {
+      font-size: 44px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .big-label {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .callout {
+      border-left: 3px solid #111;
+      padding: 16px 20px;
+      background: #f8f8f8;
+      margin: 24px 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .callout strong { color: #111; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 36px 0;
+    }
+
+    /* ---- Tables ---- */
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    table th {
+      text-align: left;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-bottom: 2px solid #111;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+      color: #333;
+    }
+
+    table td strong { color: #111; }
+    table tr:last-child td { border-bottom: none; }
+
+    /* ---- Lists ---- */
+
+    ul.bl {
+      list-style: none;
+      margin: 12px 0 20px 0;
+    }
+
+    ul.bl li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+      font-size: 15px;
+      color: #333;
+    }
+
+    ul.bl li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    ul.bl li strong { color: #111; }
+
+    /* ---- Code ---- */
+
+    .code-block {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 16px 0;
+      white-space: pre;
+      overflow-x: auto;
+      color: #222;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #f4f4f4;
+      padding: 2px 6px;
+      font-size: 13px;
+    }
+
+    /* ---- Phase Cards ---- */
+
+    .phase {
+      border: 2px solid #111;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .phase .price {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .phase p { margin-bottom: 8px; }
+
+    .phase ul {
+      list-style: none;
+      margin: 8px 0 0 0;
+    }
+
+    .phase ul li {
+      padding: 3px 0 3px 18px;
+      position: relative;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .phase ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 5px;
+      height: 5px;
+      background: #999;
+      border-radius: 50%;
+    }
+
+    .phase.future {
+      border-style: dashed;
+      border-color: #bbb;
+    }
+
+    .phase.future h3 { color: #888; }
+
+    /* ---- Comparison Grid ---- */
+
+    .vs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 20px 0;
+    }
+
+    .vs-box {
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+
+    .vs-box h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: #111;
+    }
+
+    .vs-box ul { list-style: none; }
+
+    .vs-box ul li {
+      padding: 4px 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .vs-box.now { background: #f8f8f8; }
+    .vs-box.new { border-color: #111; border-width: 2px; }
+
+    /* ---- Signature ---- */
+
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .sig-box {
+      border-top: 1px solid #111;
+      padding-top: 12px;
+    }
+
+    .sig-box .label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    .sig-box .name {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .sig-box .title {
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page">
+    <h1>Faloni Law</h1>
+    <div class="subtitle">Centralized DevOps Infrastructure Proposal</div>
+
+    <hr class="divider">
+
+    <h2>Prepared for</h2>
+    <table>
+      <tr><td style="width: 200px;"><strong>David Faloni Jr.</strong></td><td>Managing Partner</td></tr>
+      <tr><td><strong>Trisha</strong></td><td>Programming Director</td></tr>
+      <tr><td><strong>Sean Barlisan</strong></td><td>Technical Lead</td></tr>
+      <tr><td><strong>Chris</strong></td><td>Lead Programmer</td></tr>
+      <tr><td><strong>Darsh Patel</strong></td><td>Programmer</td></tr>
+    </table>
+
+    <h2>Prepared by</h2>
+    <p><strong>Syntora</strong></p>
+    <p class="meta">March 3, 2026</p>
+    <p class="meta">Confidential</p>
+  </div>
+
+  <!-- PAGE 2: UNDERSTANDING YOUR SITUATION -->
+  <div class="page">
+    <h2>Understanding Your Situation</h2>
+
+    <p>Faloni Law processes over 1,000 court emails per day through the NJ E-Courts system. Every email contains data that must be extracted, validated, and loaded into JST CollectMax -- your central database -- as fast and accurately as possible. Your vendors in India and Africa need real-time accurate data. Your filings go out in bulk. The margin for error is zero.</p>
+
+    <p>Your programming team -- Sean, Chris, Brian, and Darsh -- builds and maintains the Python scripts and PowerShell endpoints that power this data pipeline. They're good at what they do. The problem is not their skill. The problem is how they work together.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">1,000+</div>
+        <div class="big-label">Court emails processed daily</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">5</div>
+        <div class="big-label">Developers on separate workspaces</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">0</div>
+        <div class="big-label">Shared code repositories</div>
+      </div>
+    </div>
+
+    <h2>What We Identified</h2>
+
+    <ul class="bl">
+      <li><strong>Code is siloed.</strong> Each developer works on their own AWS Workspace. There is no shared repository, no visibility into what others are building, and no way to recover code if a Workspace fails.</li>
+      <li><strong>No code review process.</strong> Scripts go to production without a second pair of eyes. Edge cases, bugs, and misconfigurations are caught after they cause problems, not before.</li>
+      <li><strong>Lead programmers are bottlenecked.</strong> Chris and Sean carry the highest-priority work and can't get to backlog items. Adding another programmer into the current setup doesn't solve this -- it adds another silo.</li>
+      <li><strong>No onboarding path.</strong> When a new developer starts, Sean walks them through everything manually. There's no documentation, no central codebase to reference, no way to ramp up independently.</li>
+      <li><strong>No audit trail on code changes.</strong> There is no record of what changed in a script, when it changed, who changed it, or who approved the change.</li>
+    </ul>
+  </div>
+
+  <!-- PAGE 3: OUR APPROACH -->
+  <div class="page">
+    <h2>Our Approach</h2>
+
+    <p>We are not proposing to replace JST. JST is your engine -- it handles accounts, letters, payments, and compliance inside the software. DevOps controls everything outside it: the server JST runs on, the scripts that move data in and out, the deployment process, the security model, and the audit trail.</p>
+
+    <p>We are not proposing to rewrite your existing scripts. Sean's scrapers work. Darsh's scrapers work. We are not touching what works.</p>
+
+    <p>We are proposing <strong>one platform -- GitHub -- that solves eight problems at once.</strong></p>
+
+    <table>
+      <tr><th>#</th><th>Problem</th><th>Today</th><th>With GitHub</th></tr>
+      <tr><td>01</td><td>Code storage</td><td>Siloed on each Workspace</td><td><strong>One shared repository</strong></td></tr>
+      <tr><td>02</td><td>Code review</td><td>None</td><td><strong>Pull request approvals</strong></td></tr>
+      <tr><td>03</td><td>Deployment</td><td>Manual file copy</td><td><strong>Automated via GitHub Actions</strong></td></tr>
+      <tr><td>04</td><td>Testing</td><td>Manual</td><td><strong>Automated linting and validation</strong></td></tr>
+      <tr><td>05</td><td>Security</td><td>Nothing</td><td><strong>Secret scanning, dependency alerts</strong></td></tr>
+      <tr><td>06</td><td>Compliance gate</td><td>Nothing formal</td><td><strong>Required approver on sensitive code</strong></td></tr>
+      <tr><td>07</td><td>Audit trail</td><td>None</td><td><strong>Full change history with approvals</strong></td></tr>
+      <tr><td>08</td><td>Onboarding</td><td>Weeks of manual walkthrough</td><td><strong>Clone the repo, start contributing</strong></td></tr>
+    </table>
+
+    <p style="margin-top: 20px;"><strong>Platform cost: $4 per user per month.</strong> Seven users at $28/month. All features above are included.</p>
+  </div>
+
+  <!-- PAGE 4: BEFORE AND AFTER -->
+  <div class="page">
+    <h2>Before and After</h2>
+
+    <p><strong>Scenario:</strong> A developer writes a new email scraper for a court keyword.</p>
+
+    <div class="vs">
+      <div class="vs-box now">
+        <h4>Current Workflow</h4>
+        <ul>
+          <li>Developer writes the script on their Workspace</li>
+          <li>Nobody else can see it</li>
+          <li>No review before it runs in production</li>
+          <li>If the Workspace fails, the code is gone</li>
+          <li>If the developer leaves, the code leaves</li>
+          <li>No record of what changed or when</li>
+        </ul>
+      </div>
+      <div class="vs-box new">
+        <h4>With GitHub</h4>
+        <ul>
+          <li>Developer writes the script, pushes to their branch</li>
+          <li>Sean reviews and approves via pull request</li>
+          <li>Automated checks catch errors before merge</li>
+          <li>Code merges to main, deploys automatically</li>
+          <li>Full history is preserved permanently</li>
+          <li>Every change and approval is logged</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 5: GITHUB STRUCTURE -->
+  <div class="page">
+    <h2>Repository Structure</h2>
+
+    <p>One repository for all automation code. Each developer's work has its own folder. Everything flows through a single review and deployment process.</p>
+
+    <div class="code-block">filoni-law/automation/
+  scrapers/
+    jeffers2/          Darsh -- wage, court officer, goods &amp; chattel
+    jeffers3/          Sean -- E-Court scrapers
+  filers/              Chris -- court filing automation
+  etl/                 MaxExtract / MaxUpdater wrappers
+  powershell/          PowerShell Universal endpoints
+  shared/              Database connections, config, utilities</div>
+
+    <h2>Branch Strategy</h2>
+
+    <p>Each developer gets their own working branch. This mirrors how you work today -- isolated, your code, your pace. The difference is everything flows into one place through a review process.</p>
+
+    <table>
+      <tr><th>Branch</th><th>Purpose</th><th>Who</th></tr>
+      <tr><td><code>main</code></td><td>Production. Protected. Deployed code.</td><td>Merge only (no direct push)</td></tr>
+      <tr><td><code>staging</code></td><td>Pre-production validation</td><td>Merges from dev branches</td></tr>
+      <tr><td><code>dev/sean</code></td><td>Sean's working branch</td><td>Sean</td></tr>
+      <tr><td><code>dev/darsh</code></td><td>Darsh's working branch</td><td>Darsh</td></tr>
+      <tr><td><code>dev/chris</code></td><td>Chris's working branch</td><td>Chris</td></tr>
+      <tr><td><code>dev/brian</code></td><td>Brian's working branch</td><td>Brian</td></tr>
+      <tr><td><code>feature/*</code></td><td>New scripts or enhancements</td><td>Any developer</td></tr>
+      <tr><td><code>hotfix/*</code></td><td>Emergency production fixes</td><td>Any developer (fast-track review)</td></tr>
+    </table>
+  </div>
+
+  <!-- PAGE 6: PERMISSIONS & SECURITY -->
+  <div class="page">
+    <h2>Permissions and Security</h2>
+
+    <table>
+      <tr><th>Person</th><th>Role</th><th>Access</th></tr>
+      <tr><td><strong>David</strong></td><td>Organization Owner</td><td>Billing and organization settings. Full visibility.</td></tr>
+      <tr><td><strong>Sean</strong></td><td>Administrator</td><td>Repository settings, branch protection, merge authority, developer onboarding.</td></tr>
+      <tr><td><strong>Trisha</strong></td><td>Required Reviewer</td><td>Required approver on any change touching debtor communication, letter templates, or filing scripts. Full audit visibility.</td></tr>
+      <tr><td><strong>Chris, Brian</strong></td><td>Write</td><td>Push to personal and feature branches. Open pull requests. Cannot merge to production without review.</td></tr>
+      <tr><td><strong>Darsh</strong></td><td>Write</td><td>Push to personal and feature branches. Open pull requests. Cannot merge to production without review.</td></tr>
+      <tr><td><strong>Syntora</strong></td><td>Admin (temporary)</td><td>Setup, migration, and pipeline configuration during the engagement. Removed after handoff.</td></tr>
+    </table>
+
+    <h2>Production Protection Rules</h2>
+
+    <ul class="bl">
+      <li>Every change to production requires a pull request -- no direct push</li>
+      <li>At least one approval required (Sean or Trisha depending on scope)</li>
+      <li>Automated checks must pass before code can merge</li>
+      <li>No one can rewrite history or force-push to production</li>
+      <li>Complete log of every change, every approval, every deployment -- permanent and unalterable</li>
+    </ul>
+
+    <h2>Automatic Reviewer Assignment</h2>
+
+    <p>GitHub supports ownership rules that automatically assign the correct reviewer based on which files a pull request touches. If someone changes a filing script, both Sean and Trisha are notified. If someone changes a scraper, Sean is notified. No one has to remember to tag the right person. The system enforces it.</p>
+  </div>
+
+  <!-- PAGE 7: MIGRATION -->
+  <div class="page">
+    <h2>Migration Plan</h2>
+
+    <p><strong>Zero downtime. No disruption to daily operations.</strong> Your scripts keep processing 1,000+ emails per day throughout the entire migration.</p>
+
+    <table>
+      <tr><th>Step</th><th>What happens</th><th>Impact on your team</th></tr>
+      <tr><td>1</td><td>We create the GitHub organization, repository, and folder structure</td><td>None. Scripts keep running as-is.</td></tr>
+      <tr><td>2</td><td>We import each developer's existing scripts into the repository</td><td>None. Originals remain on Workspaces.</td></tr>
+      <tr><td>3</td><td>Developers begin pushing changes to GitHub</td><td>Small behavior change. Sean leads adoption.</td></tr>
+      <tr><td>4</td><td>We configure automated deployment from the repository to Workspaces</td><td>Deployment becomes automatic on merge.</td></tr>
+      <tr><td>5</td><td>Previous workflow phases out naturally</td><td>No forced cutover. No "migration day."</td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>The repository wraps around your existing workflow the same way DevOps wraps around JST.</strong> Nothing stops. Nothing breaks. The team transitions at their own pace.
+    </div>
+  </div>
+
+  <!-- PAGE 8: STAGED ROLLOUT -->
+  <div class="page">
+    <h2>Implementation Stages</h2>
+
+    <p>Each stage builds on the previous one. Each stands on its own. You can pause between stages if needed.</p>
+
+    <div class="phase">
+      <h3>Stage 1: GitHub + Documentation</h3>
+      <ul>
+        <li>Set up GitHub Organization and shared repository</li>
+        <li>Import all existing scripts from each developer's Workspace</li>
+        <li>Document current JST setup, data flows, and script inventory</li>
+        <li>Map compliance requirements -- identify which code touches debtor data</li>
+        <li>Configure permissions, branch protection, and reviewer assignment rules</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <h3>Stage 2: Automation Pipeline</h3>
+      <ul>
+        <li>Automated linting and validation on every pull request</li>
+        <li>Auto-deploy from the repository to AWS Workspaces on merge</li>
+        <li>Staging environment for pre-production testing</li>
+        <li>AWS backup configuration and recovery testing</li>
+        <li>Enable secret scanning and dependency vulnerability alerts</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <h3>Stage 3: ETL Pipeline + Audit Trail</h3>
+      <ul>
+        <li>MaxExtract and MaxUpdater wrapper scripts in the repository</li>
+        <li>Nightly ETL pipeline: extract account data, validate, load into secure database</li>
+        <li>Append-only audit table logging all data access and pipeline runs</li>
+        <li>Compliance gate: required reviewer on code paths touching debtor communication</li>
+      </ul>
+    </div>
+
+    <div class="phase future">
+      <h3>Stages 4-5: Future State</h3>
+      <ul>
+        <li>Advanced security scanning and compliance automation</li>
+        <li>Infrastructure-as-code for new AWS resources</li>
+        <li>Monitoring dashboards and real-time alerting</li>
+        <li>Evaluated and implemented together when the foundation is stable</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PAGE 9: PRICING -->
+  <div class="page">
+    <h2>Pricing</h2>
+
+    <p>All fees are fixed. All intellectual property is owned by Faloni Law.</p>
+
+    <div class="phase">
+      <h3>Phase 1: Discovery + Infrastructure Plan</h3>
+      <div class="price">$3,500 -- $5,000</div>
+      <p>Audit every workspace, script, schedule, and deployment process. Map the full data flow from court emails through JST to filings. Deliver a written infrastructure plan covering repository structure, branching strategy, pipeline design, security model, and migration path.</p>
+    </div>
+
+    <div class="phase">
+      <h3>Phase 2: Implementation</h3>
+      <div class="price">$12,000 -- $20,000</div>
+      <p>GitHub organization and repository setup. Monorepo with per-developer branching. GitHub Actions pipelines for linting, testing, and deployment. Incremental script migration with zero downtime. Security model implementation. Onboarding documentation so any new developer can ramp in days.</p>
+    </div>
+
+    <div class="phase">
+      <h3>Phase 3: Ongoing Support (Optional)</h3>
+      <div class="price">$2,000 -- $4,000 / month</div>
+      <p>Monthly retainer. New script development for backlog items. Pipeline maintenance and updates. Onboarding support for future hires. Scope adjusts as your needs evolve.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">$28</div>
+        <div class="big-label">GitHub platform cost per month (7 users)</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">$16-25k</div>
+        <div class="big-label">Total first engagement (Phases 1 + 2)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 10: ROI -->
+  <div class="page">
+    <h2>Return on Investment</h2>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="big-number">$300-400k</div>
+        <div class="big-label">Estimated annual developer payroll</div>
+      </div>
+      <div class="stat-box">
+        <div class="big-number">30%</div>
+        <div class="big-label">Productivity gain from shared infrastructure</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>If infrastructure makes your existing team 30% more productive, that is equivalent to adding 1.5 developers without a single new hire.</strong>
+    </div>
+
+    <h2>Where the Time Savings Come From</h2>
+
+    <ul class="bl">
+      <li><strong>Onboarding.</strong> A new developer clones the repository and starts contributing in days instead of weeks of manual walkthrough.</li>
+      <li><strong>Code review.</strong> Bugs are caught before production, not after. Fewer emergency fixes. Less rework.</li>
+      <li><strong>Deployment.</strong> Automated. Nobody manually copying files between Workspaces.</li>
+      <li><strong>Visibility.</strong> Every developer can see what the rest of the team is building. No more knowledge silos.</li>
+      <li><strong>Audit trail.</strong> Compliance visibility is built into the platform. No custom tool required.</li>
+    </ul>
+
+    <h2>The Foundation for Growth</h2>
+
+    <p>The infrastructure we are building does not only solve today's bottleneck. It is the foundation that allows you to scale -- with new hires who onboard in days instead of weeks, with specialized tools that plug into GitHub as your needs evolve, and with emerging technologies that require a structured codebase, a deployment pipeline, and a review process to operate safely.</p>
+  </div>
+
+  <!-- PAGE 11: NEXT STEPS & TERMS -->
+  <div class="page">
+    <h2>Next Steps</h2>
+
+    <table>
+      <tr><th>Step</th><th>Action</th><th>Responsible</th></tr>
+      <tr><td>1</td><td>Align on Phase 1 scope and sign engagement letter</td><td>David + Syntora</td></tr>
+      <tr><td>2</td><td>Schedule workspace access for audit</td><td>Sean + Syntora</td></tr>
+      <tr><td>3</td><td>Technical walkthrough with Chris on filer scripts</td><td>David (coordinates)</td></tr>
+      <tr><td>4</td><td>Audit begins: document every script, schedule, and data flow</td><td>Syntora</td></tr>
+      <tr><td>5</td><td>Deliver infrastructure plan for team review</td><td>Syntora</td></tr>
+    </table>
+
+    <h2>Terms</h2>
+
+    <ul class="bl">
+      <li><strong>Intellectual property.</strong> All code, documentation, configurations, and deliverables produced during this engagement are owned by Faloni Law. Syntora retains no rights to any work product.</li>
+      <li><strong>Confidentiality.</strong> All information shared during this engagement is treated as confidential. No data, code, or business information will be shared with third parties.</li>
+      <li><strong>Scope.</strong> This proposal covers Phases 1-3 as described. Stages 4-5 are presented as future direction and are not included in current pricing. Scope changes will be discussed and agreed upon before any additional work begins.</li>
+      <li><strong>Ongoing support is optional.</strong> Phase 3 is a monthly retainer that can be started, paused, or canceled at any time. There is no long-term commitment required.</li>
+    </ul>
+
+    <div class="sig-grid">
+      <div class="sig-box">
+        <div class="label">Faloni Law</div>
+        <div style="height: 60px;"></div>
+        <div class="name">David Faloni Jr.</div>
+        <div class="title">Managing Partner</div>
+      </div>
+      <div class="sig-box">
+        <div class="label">Syntora</div>
+        <div style="height: 60px;"></div>
+        <div class="name">Parker Gawne</div>
+        <div class="title">Founder</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

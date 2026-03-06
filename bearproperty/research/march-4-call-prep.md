@@ -46,11 +46,30 @@
 - RealPage vendor approval could take months
 - Bear can't wait that long, especially with buildings coming online every few months on the Core List
 
-### 3. Present the Phased Approach (10 min)
+### 3. Present What We Build (10 min)
 
-**Phase 1: Standalone Tool (start now)**
+**Two products, both standalone today, both integrate with RealPage when registration clears.**
 
-"We build a web application your team uses alongside RealPage. Your admin uploads application data -- CSV export, form entry, or paste from a spreadsheet. Our engine runs all the LIHTC income calculations instantly and sorts everyone into the right AMI bucket."
+**Product A: Communication Engine**
+
+"Your applicants aren't hearing back. Your Google reviews say it. Sara, you said your team knows it's a problem -- you're just buried. We fix that first."
+
+What it does:
+- Automated completeness check on every application (signatures, paystubs, bank statements, SSI letters, child support orders)
+- Missing docs? System sends SMS + email with the specific items and a mobile upload link
+- Automated follow-up: Day 5 reminder, Day 10 final warning
+- Staff only touches the file AFTER it's complete
+- 90-day waitlist expiration auto-warning at day 75
+- Denial notices auto-generated with HUD/FCRA compliance
+
+What it solves immediately:
+- Response time: applicants hear back same day, not weeks later
+- Document chase: system handles it, staff reviews complete files only
+- Google reviews: the reputation problem starts fixing itself
+
+**Product B: LIHTC Income Engine**
+
+"This is the waiting list sorting -- Sara's magic wand answer."
 
 What it does:
 - Calculates projected 12-month income from all source types (hourly x 2080, salary, Social Security, child support, disability, everything)
@@ -60,20 +79,20 @@ What it does:
 - Flags HOME program units that need extra student status and asset verification
 - Dashboard showing all applications sorted by AMI bucket
 - "Next in line" view per bucket when a unit opens
-- Automated email notifications to applicants (receipt, preliminary qualification, waitlist placement)
 - Exportable sorted waiting list to update RealPage
 
 What it solves immediately:
 - That admin doing 40+ hrs/week of hand calculations? Batch upload, results in seconds
 - Pre-screens the 80% that get denied before your team spends time on full processing
-- Applicant response time improves -- auto-emails go out immediately
-- No RealPage dependency, no approval process, no integration fees
+- AMI bucket sorting -- no more writing 40/50/60 next to names
 
-**Phase 2: RealPage Integration (run in parallel)**
+**Both products work standalone today -- CSV export from RealPage, no API needed.**
 
-"While your team is using the standalone tool, we register as a vendor with RealPage, sponsored by Bear. Once approved, we plug the same calculation engine directly into RealPage via API. No more manual data transfer -- applications flow in automatically, AMI buckets write back automatically, waiting list sorts itself."
+**RealPage Integration -- the end state**
 
-Same engine, just automated pipes instead of manual upload/export.
+"Bear runs 26 LIHTC communities in RealPage with 7 more coming. CSV doesn't scale to 37 properties. We start the vendor registration Day 1. Bear uses both products standalone while it processes. When it clears, we flip the switch -- same engines, live API connection, no more manual handoff."
+
+Registration starts immediately, runs in background. Same engines, just automated pipes.
 
 ### 4. Questions for Bear (15 min)
 
@@ -109,17 +128,18 @@ Pull from discovery-questions.md -- income calculations, asset verification, HOT
 ### 6. Close + Next Steps (5 min)
 
 **Get agreement on:**
-- Which approach (Phase 1 standalone, Phase 2 integration, or hybrid -- push for hybrid)
-- Pilot property
+- Starting point: Communication Engine first, Income Engine first, or both at once?
+- Pilot property (Core List?)
+- RealPage registration: start Day 1? We need PMC ID, Site ID(s), contract confirmation
 - Who needs to be involved going forward (Dawn for compliance validation?)
 - Next deliverable from us (scope doc? prototype? pricing?)
 - Next meeting date
 
-**If they say yes to sponsoring the vendor registration:**
+**RealPage registration (push for Day 1 start):**
 - We need their PMC ID and Site ID(s)
 - We'll submit the application after the call
 - Set expectations: RealPage approval is on their timeline, not ours
-- Phase 1 runs regardless
+- Both products run standalone regardless -- integration is the end state, not a blocker
 
 ---
 
@@ -127,7 +147,7 @@ Pull from discovery-questions.md -- income calculations, asset verification, HOT
 
 - **Jenny Armor is Asset Management (parent company).** She represents the CEO's interest. Speak to portfolio-level impact, not just one property.
 - **Sara is evaluating whether we can actually do this.** Show the technical depth. Reference the specific API endpoints, the calculation logic, the data model.
-- **Sara said RealPage is "a pain in the butt."** Don't oversell the integration timeline. Be honest about the process. That's why Phase 1 exists.
+- **Sara said RealPage is "a pain in the butt."** Don't oversell the integration timeline. Be honest about the process. That's why both products work standalone first.
 - **The CEO referred us.** This has top-down momentum. Don't let it stall.
 - **Sara's magic wand answer was "the waiting list sorting."** Keep coming back to that. Everything we're building leads to that outcome.
 - **Don't quote pricing on this call unless directly asked.** If asked, say we need to finalize the scope first and will follow up with a proposal.
@@ -157,16 +177,16 @@ Pull from discovery-questions.md -- income calculations, asset verification, HOT
 ## Objection Handling
 
 **"Can't you just plug directly into RealPage?"**
-Not without their approval. RealPage gates all API access. That's why we're recommending the hybrid approach -- Phase 1 gives you immediate relief while we work through the vendor registration.
+Not without their approval. RealPage gates all API access. That's why both products work standalone from day one -- CSV in, CSV out. We start the vendor registration immediately and Bear uses the products while it processes. When it clears, we flip the switch.
 
 **"We already looked at Pay Score / Snappt."**
-Those verify income. We calculate projected 12-month LIHTC income and assign AMI buckets. Different problem. Pay Score tells you what someone earned. We tell you which AMI bucket they belong in.
+Those verify income. We calculate projected 12-month LIHTC income and assign AMI buckets. Different problem. Pay Score tells you what someone earned. We tell you which AMI bucket they belong in. And neither of them does applicant communication.
 
 **"What if RealPage doesn't approve the integration?"**
-Phase 1 works regardless. Your team gets the same calculation engine, same sorted waiting list, same time savings. The only difference is the admin updates RealPage manually instead of it happening automatically.
+Both products work standalone regardless. Your team gets the same calculation engine, same communication layer, same sorted waiting list. The only difference is the admin updates RealPage manually instead of it happening automatically.
 
 **"How much does this cost?"**
-We need to finalize scope first -- which properties, what volume, what features. We'll follow up with a detailed proposal after this call.
+We need to finalize scope first -- which properties, what volume, which products. We'll follow up with a detailed proposal after this call.
 
 **"How long until we see results?"**
-Phase 1 can be built and deployed in weeks. Phase 2 depends on RealPage's review timeline.
+Communication Engine can be delivering value in weeks. Income Engine alongside. RealPage integration depends on their review timeline -- that's why we start registration Day 1.

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deck Feedback -- Faloni Law</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.7;
+      padding: 60px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header {
+      border-bottom: 3px solid #111;
+      padding-bottom: 24px;
+      margin-bottom: 48px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .greeting {
+      font-size: 17px;
+      margin-bottom: 40px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+      margin-bottom: 28px;
+    }
+
+    .item {
+      margin-bottom: 28px;
+    }
+
+    .item-lead {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .item p {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .callout {
+      border-left: 3px solid #111;
+      padding: 16px 20px;
+      background: #f8f8f8;
+      margin: 28px 0;
+      font-size: 15px;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .change-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .change-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+    }
+
+    .change-list li:last-child {
+      border-bottom: none;
+    }
+
+    .change-list li strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #111;
+    }
+
+    .change-list li span {
+      color: #444;
+    }
+
+    .key-points {
+      margin: 16px 0 0 0;
+      list-style: none;
+    }
+
+    .key-points li {
+      padding: 8px 0 8px 20px;
+      position: relative;
+      font-size: 15px;
+      border-bottom: none;
+    }
+
+    .key-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 8px;
+      height: 8px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    .reference {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      margin: 20px 0;
+    }
+
+    .closing {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 3px solid #111;
+      font-size: 16px;
+    }
+
+    .closing .sign-off {
+      margin-top: 24px;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    table th {
+      text-align: left;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-bottom: 2px solid #111;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    table tr:last-child td {
+      border-bottom: none;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #f4f4f4;
+      padding: 2px 6px;
+      font-size: 13px;
+    }
+
+    @media print {
+      body { padding: 40px 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Deck Feedback -- Faloni Law</h1>
+    <div class="subtitle">2026-03-02 -- Excalidraw Presentation Review</div>
+  </div>
+
+  <div class="greeting">
+    Meghna, good work on this. You built a real presentation structure from scratch and covered a lot of ground. Before I get into revisions, I want to walk through what you did well because the foundation here is solid.
+  </div>
+
+  <!-- WHAT YOU NAILED -->
+  <div class="section">
+    <div class="section-label">What You Nailed</div>
+
+    <div class="item">
+      <div class="item-lead">The framing is right.</div>
+      <p>"DevOps wraps around JST. It does not replace it." That single line is probably the most important sentence in the entire deck. David and Trisha need to hear that their core system isn't being disrupted. You understood the assignment -- position JST as the engine, position us as the team building the garage around it. That's exactly the message we need to lead with.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">The compliance section is strong.</div>
+      <p>FDCPA, TCPA, SOC 2 Type II, GLBA -- you went and researched what laws actually apply to a debt collection firm and laid them out cleanly. This matters because Trisha's primary concern is security and audit trails. When she sees that slide, she'll feel like we understand her world. That section stays as-is.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">The JST tools breakdown shows research depth.</div>
+      <p>MaxExtract, MaxUpdater, MaxSecurity, MaxPlans, Built-in Compliance -- you mapped out how JST's own tools plug into the DevOps system we're proposing. That tells the client we're not just throwing generic infrastructure at them. We actually looked at what their software can do and built around it.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">The 7-stage pipeline visual is clean.</div>
+      <p>The assembly line graphic with the icons is well-designed and easy to follow. The phase table underneath with owners, gate criteria, tooling, and status badges is a good format. The structure of that table is exactly right -- we're going to keep that format and adjust the content inside it.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">The staged rollout is the right approach.</div>
+      <p>You didn't try to present everything as a single big bang. You broke it into phases that build on each other. That's important for a team that's never had centralized infrastructure before.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">The analogies land.</div>
+      <p>"JST is the engine and DevOps is the garage" and "A pipeline is just a checklist that runs itself." Both of these are great plain-language explanations. David is a managing partner at a law firm, not an engineer. This is the right language.</p>
+    </div>
+  </div>
+
+  <!-- THEIR ACTUAL TECH STACK -->
+  <div class="section">
+    <div class="section-label">Their Actual Tech Stack (Confirmed on Calls 1 and 2)</div>
+
+    <p style="font-size: 15px; color: #333; margin-bottom: 16px;">
+      Anchor the deck in what they confirmed. Nothing more, nothing assumed.
+    </p>
+
+    <table>
+      <tr>
+        <th>Tool</th>
+        <th>What it does</th>
+        <th>Where</th>
+      </tr>
+      <tr>
+        <td><strong>JST CollectMax</strong></td>
+        <td>Central database. Case management, court filings, payments, compliance. No REST API. File-based EDI only.</td>
+        <td>On-prem</td>
+      </tr>
+      <tr>
+        <td><strong>SQL Database</strong></td>
+        <td>Custom reporting, cross-referencing (docket + county = account number).</td>
+        <td>Likely on-prem</td>
+      </tr>
+      <tr>
+        <td><strong>Python</strong></td>
+        <td>Primary scripting. Email scrapers, click-through court automation, data import/export.</td>
+        <td>AWS Workspaces</td>
+      </tr>
+      <tr>
+        <td><strong>PowerShell Universal</strong></td>
+        <td>Endpoints for FTP transfers, report generation, SQL queries.</td>
+        <td>Server infra</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Workspaces</strong></td>
+        <td>One dedicated VM per programmer. Scripts run here.</td>
+        <td>AWS</td>
+      </tr>
+      <tr>
+        <td><strong>Okta</strong></td>
+        <td>MFA for users. Not part of dev stack.</td>
+        <td>SaaS</td>
+      </tr>
+      <tr>
+        <td><strong>BitBucket</strong></td>
+        <td>Darsh's scrapers only. Side project. Not team-wide.</td>
+        <td>Cloud</td>
+      </tr>
+    </table>
+
+    <div class="callout">
+      <strong>What they don't have:</strong>
+      No centralized repo. No CI/CD pipeline. No project management tool confirmed. No team-wide version control. No formal code review process. Sean mentors Darsh informally -- that's it.
+    </div>
+  </div>
+
+  <!-- WHERE TO ADJUST -->
+  <div class="section">
+    <div class="section-label">Where to Adjust</div>
+
+    <div class="callout">
+      <strong>The core issue is one thing: too many new tools introduced at once.</strong>
+      Your instinct to show the full enterprise pipeline was right in terms of thinking big, and that's where we want them to end up. But for the call tomorrow, we need to show them that the first phase is one new platform (GitHub), not eleven.
+    </div>
+
+    <p style="margin-bottom: 20px; font-size: 15px; color: #333;">
+      Right now the deck introduces Jira, Confluence, SonarQube, Snyk, Terraform, Datadog, PagerDuty, DocuSign, Policy Engine, AWS CodeDeploy, and GitHub all in the same breath. For a team where Sean said adopting GitHub alone is "a big bridge to cross," seeing that list will create resistance instead of buy-in.
+    </p>
+
+    <p style="margin-bottom: 20px; font-size: 15px; color: #333;">
+      Here's the shift: <strong>GitHub handles almost every stage of the pipeline natively.</strong> Code, build, test, security, review, deploy, and monitoring all live inside GitHub and GitHub Actions. We don't need separate tools for each stage in Phase 1. We need one platform that scales with them, and we add specialized tools later when the volume justifies it.
+    </p>
+
+    <ul class="change-list">
+      <li>
+        <strong>Pipeline table</strong>
+        <span>Keep the format you built. Replace the tooling column so every stage maps to GitHub or something they already have. Revised mapping is in the detailed notes file.</span>
+      </li>
+      <li>
+        <strong>Phase table owners</strong>
+        <span>Swap out generic titles (Engineering Lead, Release Manager, On-Call Engineer) for their actual people. Sean, Darsh, Chris, Brian, Trisha. When they see their own names in the system, it stops being abstract and starts being real.</span>
+      </li>
+      <li>
+        <strong>GitHub section</strong>
+        <span>This is the biggest addition. The deck currently gives GitHub one bullet in Stage 1. It needs its own section covering repo structure, branch strategy, permissions, and how migration works without downtime. The key points:</span>
+        <ul class="key-points">
+          <li><strong>Sean is the Admin.</strong> He runs the GitHub workflow day-to-day. This matches how their team already operates.</li>
+          <li><strong>Trisha is a Required Reviewer, not an admin.</strong> She gets a compliance gate on any PR that touches debtor communication, letter templates, or filer scripts. She doesn't need to learn Git. She clicks Approve or Request Changes on a web page.</li>
+          <li><strong>Each dev gets their own branch</strong> (dev/sean, dev/darsh, etc.) that mirrors how they work today -- isolated, their code, their pace. The difference is it all flows into one place.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Remove Terraform from Stage 2</strong>
+        <span>Terraform manages cloud infrastructure that changes frequently. Faloni's infrastructure is static -- an on-prem JST server, a handful of AWS Workspaces that don't spin up/down, and a SQL database. There's nothing for Terraform to manage in Phase 1. Replace with "GitHub Actions deploys to existing AWS Workspaces." Terraform enters Stage 5 when new AWS resources (RDS, Lambda) from the ETL pipeline need to be codified.</span>
+      </li>
+      <li>
+        <strong>Remove Jira/Confluence</strong>
+        <span>No project management tool was confirmed on either call. David said "we need to get a list together" which implies no formal backlog system. Ask on the call what they use. Don't introduce PM tooling we haven't confirmed they need.</span>
+      </li>
+      <li>
+        <strong>Remove Snyk from Stage 4</strong>
+        <span>GitHub Team plan includes secret scanning and Dependabot for free. Covers hardcoded credentials, vulnerable dependencies, and automated alerts. Snyk is a future upgrade when code volume justifies a dedicated scanner.</span>
+      </li>
+      <li>
+        <strong>Label Stage 5 as future state</strong>
+        <span>Don't present Terraform, Datadog, or PagerDuty as part of the build. They're where we go after Stages 1-3 are stable. The call should focus on Stages 1-3.</span>
+      </li>
+      <li>
+        <strong>Add a before/after slide</strong>
+        <span>Show the same scenario (Darsh writes a scraper) under the current workflow vs. after Phase 1 vs. after Phase 2. Simplest way to show value. Detail in the notes file.</span>
+      </li>
+      <li>
+        <strong>Address the bottleneck directly</strong>
+        <span>Their dev team is already behind. The deck should explain how GitHub infrastructure directly reduces that backlog: new engineers onboard in days instead of months, code review catches bugs before production, and the structured repo becomes the foundation for AI agents to read, write, and deploy code alongside human devs. The infrastructure we're building isn't just for today's team -- it's the prerequisite for scaling with both people and AI.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- TOOL TIMELINE -->
+  <div class="section">
+    <div class="section-label">Tool Introduction Timeline</div>
+
+    <p style="font-size: 15px; color: #333; margin-bottom: 16px;">
+      Add this to the deck. Shows the scale path without front-loading complexity.
+    </p>
+
+    <table>
+      <tr>
+        <th>Tool</th>
+        <th>When</th>
+        <th>Why then</th>
+      </tr>
+      <tr>
+        <td><strong>GitHub</strong><br>(repo, PRs, branches)</td>
+        <td>Stage 1</td>
+        <td>Core problem: code is siloed. This fixes it.</td>
+      </tr>
+      <tr>
+        <td><strong>GitHub Actions</strong></td>
+        <td>Stage 2</td>
+        <td>Automated linting, testing, deployment. Comes with GitHub.</td>
+      </tr>
+      <tr>
+        <td><strong>Secret Scanning</strong></td>
+        <td>Stage 2</td>
+        <td>Catches hardcoded credentials. Free with Team plan.</td>
+      </tr>
+      <tr>
+        <td><strong>Dependabot</strong></td>
+        <td>Stage 2</td>
+        <td>Flags vulnerable dependencies. Free with Team plan.</td>
+      </tr>
+      <tr>
+        <td><strong>CODEOWNERS</strong></td>
+        <td>Stage 1 / Stage 4</td>
+        <td>Set up early, enforce when team is comfortable.</td>
+      </tr>
+      <tr>
+        <td><strong>Terraform</strong></td>
+        <td>Stage 5</td>
+        <td>New AWS resources from Stage 3 need to be codified. Not needed before.</td>
+      </tr>
+      <tr>
+        <td><strong>Snyk / SonarQube</strong></td>
+        <td>Stage 5+</td>
+        <td>When code volume justifies a dedicated scanner.</td>
+      </tr>
+      <tr>
+        <td><strong>Datadog / CloudWatch</strong></td>
+        <td>Stage 5+</td>
+        <td>When pipeline volume justifies dedicated monitoring.</td>
+      </tr>
+      <tr>
+        <td><strong>PM tooling</strong></td>
+        <td>Only if needed</td>
+        <td>Ask what they use. GitHub Issues covers basics.</td>
+      </tr>
+    </table>
+
+    <div class="callout">
+      <strong>The message: GitHub is the platform. Everything else plugs in when it's earned.</strong>
+    </div>
+  </div>
+
+  <!-- WHY THIS MATTERS NOW -->
+  <div class="section">
+    <div class="section-label">Why This Matters Now -- The Bottleneck Argument</div>
+
+    <p style="font-size: 15px; color: #333; margin-bottom: 16px;">
+      The deck needs to address their immediate pain head-on. Their dev team is already behind. Chris and Sean are bottlenecked. The backlog is growing. They came to us asking for another programmer. The deck should explain why infrastructure solves the bottleneck faster than headcount -- and sets them up for what's next.
+    </p>
+
+    <div class="item">
+      <div class="item-lead">Today: adding a new engineer is slow.</div>
+      <p>A new dev gets an AWS Workspace. They ask Sean where the code is. Sean points them to his Workspace, explains his folder structure, walks them through the scripts manually. There's no README, no repo to clone, no onboarding path. Darsh said the learning curve "wasn't too big" because he had Sean. But Sean's time is the bottleneck. Every hour Sean spends onboarding is an hour he's not writing code.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">After GitHub: a new engineer clones the repo and starts.</div>
+      <p>They see the folder structure. They see the scripts. They see the commit history of every change. They see the CODEOWNERS file telling them who owns what. They open a PR, Sean reviews it in 10 minutes, and they're contributing on day one. Sean's mentorship time drops from weeks to hours.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">After GitHub Actions: the team moves faster without more people.</div>
+      <p>Linting catches syntax errors before Sean ever sees the PR. Automated deployment means nobody manually copies files to a Workspace. Failed scripts alert the team instead of someone noticing hours later. The 4-5 devs they already have become 30% more productive -- equivalent to adding 1-2 headcount without a single new hire.</p>
+    </div>
+
+    <div class="item">
+      <div class="item-lead">The foundation for AI.</div>
+      <p>They said AI isn't on the table for this engagement. That's fine. But the infrastructure we're building is the prerequisite. AI agents need a structured codebase to read from, a repo to write to, a pipeline to deploy through, and a review process to gate the output. Without GitHub, AI has nowhere to plug in. With it, the door is open. When they're ready -- whether that's 6 months or 2 years from now -- the foundation is already there. An AI agent could draft a new scraper, open a PR, Sean reviews it, and it deploys through the same pipeline as any human-written code. That's not science fiction. That's what the repo structure enables.</p>
+    </div>
+  </div>
+
+  <!-- REFERENCE -->
+  <div class="section">
+    <div class="section-label">Where to Find the Details</div>
+    <p style="font-size: 15px; color: #333; margin-bottom: 16px;">
+      Everything above with full tables, code examples, revised stage breakdowns, permissions matrix, CODEOWNERS file, branch protection rules, and call questions is in:
+    </p>
+    <div class="reference">falonilaw/notes/2026-03-02-excalidraw-feedback.md</div>
+    <p style="font-size: 15px; color: #333;">
+      Use that as the reference for revisions. The structure of your deck doesn't need to change. The content inside the pipeline table, the owners, and the tooling references are what we're updating.
+    </p>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p>The vision you built is where we're taking them. We're just adjusting the on-ramp so they don't see the full highway on day one.</p>
+    <p style="margin-top: 12px;">Good work. Let's get this tightened up for tomorrow.</p>
+    <div class="sign-off">-- Parker</div>
+  </div>
+
+</body>
+</html>
