@@ -17,5 +17,9 @@ Syntora prospect pipeline. Research, discovery calls, and strategy docs for acti
 | Prospect | Industry | Stage |
 |----------|----------|-------|
 | [Bear Property](bearproperty/) | Property Management (LIHTC) | Presenting Solution |
-| [Faloni Law](falonilaw/) | Debt Collection Law | Proposal |
+| [Faloni Law](falonilaw/) | Debt Collection Law | Proposal Sent |
+| [Helping Hands](helpinghands/) | Residential Cleaning | Discovery Complete |
+| [Edge Acoustics](edgeacoustics/) | Commercial Acoustical Ceilings | Discovery Complete |
 | [GetPrimera](getprimera/) | Insurance (independent agency) | Discovery |
+| [Avegen](avegen/) | TBD | New |
+| [Sourcebooks](sourcebooks/) | Publishing | Re-engaging |

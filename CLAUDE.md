@@ -37,3 +37,5 @@ prospects/
 | helpinghands | Residential Cleaning | Discovery Complete -- voice agent + AEO designed, awaiting Gosia deliverables |
 | edgeacoustics | Commercial acoustical ceilings (Vancouver) | Discovery Complete -- proposal ready ($485), send to Branden |
 | getprimera | Insurance (independent agency) | Discovery -- strategy call 2026-03-05 |
+| avegen | TBD | New |
+| sourcebooks | Publishing | Re-engaging |
