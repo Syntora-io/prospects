@@ -51,11 +51,11 @@
 6. **Manual payroll flow** -- TSheets hours manually flow into QuickBooks
 
 ## Our Proposed Approach
-### Phase 1: Discovery (Estimating)
-- 2 calls with head estimator: screen share of full workflow, capture detailed process
+### Phase 1: Discovery (Estimating) -- $485
+- 3 calls total: 2 with head estimator (screen share of full workflow), 1 deliverable presentation
 - Map automation opportunities across the estimating pipeline
 - Architect solution for AI-assisted drawing review / takeoff verification
-- Deliverable: opportunity map + solution architecture
+- Deliverables: process map, AI/automation opportunity map, implementation proposal
 
 ### Phase 2: Implementation (Estimating -- Post-Discovery)
 - AI as safety net: reviews drawings, spot-checks takeoffs for missed items
@@ -103,5 +103,5 @@ edgeacoustics/
     2026-03-05-discovery-call.md                 <- Full call notes + transcript summary
   notes/
   research/
-    2026-03-05-discovery-proposal.html           <- Discovery phase proposal for Branden ($1,500)
+    2026-03-05-discovery-proposal.html           <- Discovery phase proposal for Branden ($485)
 ```

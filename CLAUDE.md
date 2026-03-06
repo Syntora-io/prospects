@@ -33,4 +33,7 @@ prospects/
 | Prospect | Industry | Stage |
 |----------|----------|-------|
 | bearproperty | Property Management (LIHTC) | Presenting Solution |
-| falonilaw | Debt Collection Law | Proposal |
+| falonilaw | Debt Collection Law | Proposal Sent |
+| helpinghands | Residential Cleaning | Discovery Complete -- voice agent + AEO designed, awaiting Gosia deliverables |
+| edgeacoustics | Commercial acoustical ceilings (Vancouver) | Discovery Complete -- proposal ready ($485), send to Branden |
+| getprimera | Insurance (independent agency) | Discovery -- strategy call 2026-03-05 |
